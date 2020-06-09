@@ -3,10 +3,5 @@
 @section('content')
 
 
-インデックス です<br>
-@if($user_ok)
-  <a href="{{route('user.show',['id'=> $id ])}}">マイページ</a>
-
-@endif
-
+インデックス です
 @endsection

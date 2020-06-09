@@ -14,10 +14,10 @@ class StrategyController extends Controller
      */
     public function index()
     {
-        $id = Auth::id();
-        $user_ok = Auth::check();
+      
+       
  
-        return view('strategy.index',compact('id','user_ok'));
+        return view('strategy.index');
     }
 
     /**
