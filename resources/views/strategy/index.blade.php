@@ -1,9 +1,12 @@
 @extends('layouts.app')
+
 @section('content')
 
 
 インデックス です<br>
-<a href="{{route('user.show',['id'=> $id ])}}">マイページ</a>
+@if($user_ok)
+  <a href="{{route('user.show',['id'=> $id ])}}">マイページ</a>
 
+@endif
 
 @endsection
