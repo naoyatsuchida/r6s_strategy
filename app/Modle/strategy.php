@@ -4,7 +4,7 @@ namespace App\Modle;
 
 use Illuminate\Database\Eloquent\Model;
 
-class strategy extends Model
+class Strategy extends Model
 {
     public function users(){
         return $this->belongsTo('App\User');
