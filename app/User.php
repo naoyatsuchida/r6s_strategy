@@ -10,6 +10,13 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function strategies(){
+        return $this->hasMany('App\Models\strategy');
+    }
+
+
+
+
     /**
      * The attributes that are mass assignable.
      *
