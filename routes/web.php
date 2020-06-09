@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'StrategyController@index');
+    
 
+Route::prefix('strategy')->group(function () {
+    
+});
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
