@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Kalnoy\Nestedset\NestedSet;
 class CreateMapCategoriesTable extends Migration
 {
     /**
@@ -17,7 +17,7 @@ class CreateMapCategoriesTable extends Migration
             $table->id();
             $table->string('name',40);//マップ名の入力のため
             $table->string('path');
-            $table->nestedSet();
+            NestedSet::columns($table);
             $table->timestamps();
         });
     }
