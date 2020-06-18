@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use \App\Models\Map_Category;
 
 class StrategyController extends Controller
 {
@@ -14,10 +15,9 @@ class StrategyController extends Controller
      */
     public function index()
     {
-      
-       
- 
-        return view('strategy.index');
+        $maps = Map_Category::get()->toTree();
+
+        return view('strategy.index',compact('maps'));
     }
 
     /**
