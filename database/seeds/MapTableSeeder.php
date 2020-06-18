@@ -162,7 +162,7 @@ class MapTableSeeder extends Seeder
                 'name' => 'ヴィラ',
                 'path' => 'images/maps_top/villa.jpg',
                     'children' => [
-                                          
+                                        
                             ['path' => 'images/maps/villa/villa_1.jpg'],
                             ['path' => 'images/maps/villa/villa_2.jpg'],
                             ['path' => 'images/maps/villa/villa_3.jpg'],
@@ -180,7 +180,7 @@ class MapTableSeeder extends Seeder
         // $n->name = $map['name'];
         // $n->path = $map['path'];
         
-        // var_dump($n);
+        // var_dump($map['children']);
         // $n->save();
         \App\Models\Map_Category::create($map);
         }
@@ -190,3 +190,4 @@ class MapTableSeeder extends Seeder
         
 }
 }
+
