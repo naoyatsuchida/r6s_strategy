@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \App\Models\Map_Category;
+use Illuminate\Support\Facades\DB;
 
 class StrategyController extends Controller
 {
@@ -49,7 +50,8 @@ class StrategyController extends Controller
      */
     public function show($id)
     {
-        //
+        $maps = Map_Category::descendantsOf($id);
+        return view('strategy.show',compact('maps'));
     }
 
     /**
@@ -60,7 +62,7 @@ class StrategyController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

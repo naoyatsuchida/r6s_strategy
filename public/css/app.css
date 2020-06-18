@@ -10930,8 +10930,25 @@ a.text-dark:focus {
 
 .strategy {
   width: 80%;
+  height: 100%;
   margin: 0 auto;
   padding-top: 20px;
   text-align: center;
+}
+
+.strategy__maps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.strategy__maps__img {
+  width: 33%;
+  margin: 20px 0 10px 0;
+  height: 50%;
+}
+
+.strategy__maps__img img {
+  max-width: 100%;
 }
 
