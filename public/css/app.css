@@ -10952,3 +10952,29 @@ a.text-dark:focus {
   max-width: 100%;
 }
 
+.show {
+  display: flex;
+  position: relative;
+  padding: 10px;
+  width: 100%;
+}
+
+.show__img {
+  width: 80%;
+  padding-right: 10px;
+}
+
+.show__img__map {
+  margin-bottom: 10px;
+  height: 100vh;
+}
+
+.show__said {
+  width: 20%;
+  height: 100vh;
+  background-color: red;
+  position: absolute;
+  position: fixed;
+  right: 0;
+}
+
