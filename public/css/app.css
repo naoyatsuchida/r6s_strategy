@@ -10928,3 +10928,53 @@ a.text-dark:focus {
   }
 }
 
+.strategy {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.strategy__maps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.strategy__maps__img {
+  width: 33%;
+  margin: 20px 0 10px 0;
+  height: 50%;
+}
+
+.strategy__maps__img img {
+  max-width: 100%;
+}
+
+.show {
+  display: flex;
+  position: relative;
+  padding: 10px;
+  width: 100%;
+}
+
+.show__img {
+  width: 80%;
+  padding-right: 10px;
+}
+
+.show__img__map {
+  margin-bottom: 10px;
+  height: 100vh;
+}
+
+.show__said {
+  width: 20%;
+  height: 100vh;
+  background-color: red;
+  position: absolute;
+  position: fixed;
+  right: 0;
+}
+

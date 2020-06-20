@@ -15,7 +15,6 @@ class CreateMapCategoriesTable extends Migration
     {
         Schema::create('map__categories', function (Blueprint $table) {
             $table->id();
-            // $table->string('name',40);//マップ名の入力のため
             $table->string('path');
             NestedSet::columns($table);
             $table->timestamps();
