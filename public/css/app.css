@@ -10962,10 +10962,11 @@ a.text-dark:focus {
 .show__img {
   width: 80%;
   padding-right: 10px;
+  height: 100%;
 }
 
 .show__img__map {
-  margin-bottom: 10px;
+  border: 15px;
   height: 100vh;
 }
 
