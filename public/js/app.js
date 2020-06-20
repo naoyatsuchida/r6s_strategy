@@ -49766,7 +49766,10 @@ window.onload = function () {
   var canvas = document.querySelector("#CanvasMap");
   canvas.width = container.clientWidth;
   canvas.height = container.clientHeight;
-  var ctx = canvas.getContext("2d");
+  var ctx = canvas.getContext("2d"); // let img = new Image();
+  // img.src = document.querySelectorAll('input').value;
+  // console.log(foo01);
+
   var img = new Image();
   img.src = document.getElementById('h').value;
 
