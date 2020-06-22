@@ -14,12 +14,11 @@
         </form>
         <canvas id='CanvasMap{{$loop->iteration}}' ></canvas>
         <canvas id="CanvasDraw{{$loop->iteration}}"></canvas>
-        <div>
-          <button id="clear-button{{$loop->iteration}}">戻る</button>
-          <button id="clear-button{{$loop->iteration}}">進む</button>
-        </div>
- 
+        
+        
+        
       </div>
+      <button id="clear-button{{$loop->iteration}}">削除</button>
     @endforeach
   </div>
   @include('components.said',['title'=>'サイドバー'])

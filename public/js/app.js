@@ -49763,17 +49763,20 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.onload = function () {
   //canvasタグに画像を表示させる
-  var container = document.getElementById('canvas_container');
   var count = document.getElementById('count').value;
 
   var _loop = function _loop(step) {
     var canvas = document.querySelector("#CanvasMap".concat(step));
-    var ctx = canvas.getContext("2d"); //canvasの幅を指定
+    var ctx = canvas.getContext("2d");
+    var canvasdraw = document.querySelector("#CanvasDraw".concat(step));
+    var ctxdraw = canvasdraw.getContext("2d"); //canvasの幅を指定
 
     w = $('.show__img__map').width();
     h = $('.show__img__map').height();
     $("#CanvasMap".concat(step)).attr('width', w);
-    $("#CanvasMap".concat(step)).attr('height', h); //画像表示する
+    $("#CanvasMap".concat(step)).attr('height', h);
+    $("#CanvasDraw".concat(step)).attr('width', w);
+    $("#CanvasDraw".concat(step)).attr('height', h); //画像表示する
 
     var img = new Image();
     img.src = document.getElementById("pass".concat(step)).value;
@@ -49807,13 +49810,13 @@ window.onload = function () {
     // 線の状態を定義する
 
 
-    ctx.lineCap = 'round'; // 丸みを帯びた線にする
+    ctxdraw.lineCap = 'round'; // 丸みを帯びた線にする
 
-    ctx.lineJoin = 'round'; // 丸みを帯びた線にする
+    ctxdraw.lineJoin = 'round'; // 丸みを帯びた線にする
 
-    ctx.lineWidth = 5; // 線の太さ
+    ctxdraw.lineWidth = 5; // 線の太さ
 
-    ctx.strokeStyle = 'red'; // 線の色
+    ctxdraw.strokeStyle = 'red'; // 線の色
     //マウスの位置を観測
 
     var lastPosition = {
@@ -49829,14 +49832,14 @@ window.onload = function () {
 
       if (lastPosition.x === null || lastPosition.y === null) {
         // ドラッグ開始時の線の開始位置
-        ctx.moveTo(x, y);
+        ctxdraw.moveTo(x, y);
       } else {
         // ドラッグ中の線の開始位置
-        ctx.moveTo(lastPosition.x, lastPosition.y);
+        ctxdraw.moveTo(lastPosition.x, lastPosition.y);
       }
 
-      ctx.lineTo(x, y);
-      ctx.stroke();
+      ctxdraw.lineTo(x, y);
+      ctxdraw.stroke();
       lastPosition.x = x;
       lastPosition.y = y; /////////////////
     }
@@ -49844,19 +49847,19 @@ window.onload = function () {
     ; //全て削除
 
     function clear() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctxdraw.clearRect(0, 0, canvasdraw.width, canvasdraw.height);
     }
 
     function dragStart(event) {
       // これから新しい線を書き始めることを宣言する
       // 一連の線を書く処理が終了したらdragEnd関数内のclosePathで終了を宣言する
-      ctx.beginPath();
+      ctxdraw.beginPath();
       isDrag = true;
     }
 
     function dragEnd(event) {
       // 線を書く処理の終了を宣言する
-      ctx.closePath();
+      ctxdraw.closePath();
       isDrag = false; // 描画中に記録していた値をリセットする
 
       lastPosition.x = null;
@@ -49866,10 +49869,10 @@ window.onload = function () {
     function initEventHandler() {
       var clearButton = document.querySelector("#clear-button".concat(step));
       clearButton.addEventListener('click', clear);
-      canvas.addEventListener('mousedown', dragStart);
-      canvas.addEventListener('mouseup', dragEnd);
-      canvas.addEventListener('mouseout', dragEnd);
-      canvas.addEventListener('mousemove', function (event) {
+      canvasdraw.addEventListener('mousedown', dragStart);
+      canvasdraw.addEventListener('mouseup', dragEnd);
+      canvasdraw.addEventListener('mouseout', dragEnd);
+      canvasdraw.addEventListener('mousemove', function (event) {
         draw(event.layerX, event.layerY);
       });
     }
