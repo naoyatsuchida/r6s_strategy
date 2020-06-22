@@ -49763,22 +49763,29 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.onload = function () {
   var container = document.getElementById('canvas_container');
-  var canvas = document.querySelector("#CanvasMap");
-  canvas.width = container.clientWidth;
-  canvas.height = container.clientHeight;
-  var ctx = canvas.getContext("2d"); // let img = new Image();
-  // img.src = document.querySelectorAll('input').value;
-  // console.log(foo01);
+  var count = document.getElementById('count').value;
 
-  var img = new Image();
-  img.src = document.getElementById('h').value;
+  var _loop = function _loop(step) {
+    var canvas = document.querySelector("#CanvasMap".concat(step));
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
+    var ctx = canvas.getContext("2d");
+    var img = new Image();
+    img.src = document.getElementById("pass".concat(step)).value;
 
-  img.onload = function () {
-    var scale = canvas.width / img.width;
-    var he = canvas.height / img.height;
-    ctx.setTransform(scale, 0, 0, he, 0, 0);
-    ctx.drawImage(img, 0, 0);
+    img.onload = function () {
+      var scale = canvas.width / img.width;
+      var he = canvas.height / img.height;
+      ctx.setTransform(scale, 0, 0, he, 0, 0);
+      ctx.drawImage(img, 0, 0);
+    };
   };
+
+  for (var step = 1; step <= count; step++) {
+    _loop(step);
+  }
+
+  ;
 };
 
 /***/ }),

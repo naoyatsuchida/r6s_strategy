@@ -10966,7 +10966,7 @@ a.text-dark:focus {
 }
 
 .show__img__map {
-  border: 15px;
+  margin-bottom: 10px;
   height: 100vh;
 }
 

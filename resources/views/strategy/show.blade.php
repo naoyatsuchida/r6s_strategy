@@ -9,12 +9,13 @@
     
     <div class="show__img__map" id="canvas_container">
         <form action="#" >
-          <input type="hidden" id='h' value="{{asset($map->path)}}" class="img_pass">
+          <input type="hidden" id='pass{{$loop->iteration}}' value="{{asset($map->path)}}" class="img_pass">
+          <input type="hidden" id='count' value="{{$loop->count}}" class="img_pass">
         </form>
-        <canvas id='CanvasMap' >
-          <!-- <img src="{{asset($map->path)}}" alt="各マップの画像" width="100%" height="800"> -->
-        </canvas>
+        <canvas id='CanvasMap{{$loop->iteration}}' >
 
+        </canvas>
+ 
       </div>
     @endforeach
   </div>
