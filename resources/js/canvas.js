@@ -45,10 +45,11 @@ window.onload = () =>{
 
 
     // 線の状態を定義する
+    let currentcolor = 'red'
     ctxdraw.lineCap = 'round'; // 丸みを帯びた線にする
     ctxdraw.lineJoin = 'round'; // 丸みを帯びた線にする
     ctxdraw.lineWidth = 5; // 線の太さ
-    ctxdraw.strokeStyle = 'red'; // 線の色
+    ctxdraw.strokeStyle = currentcolor; // 線の色
 
     //マウスの位置を観測
     const lastPosition = { x: null, y: null };

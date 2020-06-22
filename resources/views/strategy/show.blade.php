@@ -18,8 +18,13 @@
         
         
       </div>
+     
       <button id="clear-button{{$loop->iteration}}">削除</button>
     @endforeach
+    <form action="#">
+      <input type="text">
+      <input type="submit">
+    </form>
   </div>
   @include('components.said',['title'=>'サイドバー'])
 </div>
