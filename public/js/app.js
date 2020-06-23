@@ -49683,6 +49683,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./canvas */ "./resources/js/canvas.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49749,6 +49751,145 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/canvas.js":
+/*!********************************!*\
+  !*** ./resources/js/canvas.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+window.onload = function () {
+  //canvasタグに画像を表示させる
+  var count = document.getElementById('count').value;
+
+  var _loop = function _loop(step) {
+    var canvas = document.querySelector("#CanvasMap".concat(step));
+    var ctx = canvas.getContext("2d");
+    var canvasdraw = document.querySelector("#CanvasDraw".concat(step));
+    var ctxdraw = canvasdraw.getContext("2d"); //canvasの幅を指定
+
+    w = $('.show__img__map').width();
+    h = $('.show__img__map').height();
+    $("#CanvasMap".concat(step)).attr('width', w);
+    $("#CanvasMap".concat(step)).attr('height', h);
+    $("#CanvasDraw".concat(step)).attr('width', w);
+    $("#CanvasDraw".concat(step)).attr('height', h); //画像表示する
+
+    var img = new Image();
+    img.src = document.getElementById("pass".concat(step)).value;
+
+    img.onload = function () {
+      var canvasAspect = ctx.canvas.width / ctx.canvas.height,
+          // canvasのアスペクト比
+      imgAspect = img.width / img.height,
+          // 画像のアスペクト比
+      left,
+          top,
+          width,
+          height;
+
+      if (imgAspect >= canvasAspect) {
+        // 画像が横長
+        left = 0;
+        width = ctx.canvas.width;
+        height = ctx.canvas.width / imgAspect;
+        top = (ctx.canvas.height - height) / 2;
+      } else {
+        // 画像が縦長
+        top = 0;
+        height = ctx.canvas.height;
+        width = ctx.canvas.height * imgAspect;
+        left = (ctx.canvas.width - width) / 2;
+      }
+
+      ctx.drawImage(img, 0, 0, img.width, img.height, left, top, width, height);
+    }; ///////////////画像関係とじ
+    // 線の状態を定義する
+
+
+    var currentcolor = 'red';
+    ctxdraw.lineCap = 'round'; // 丸みを帯びた線にする
+
+    ctxdraw.lineJoin = 'round'; // 丸みを帯びた線にする
+
+    ctxdraw.lineWidth = 5; // 線の太さ
+
+    ctxdraw.strokeStyle = currentcolor; // 線の色
+    //マウスの位置を観測
+
+    var lastPosition = {
+      x: null,
+      y: null
+    };
+    var isDrag = false; //trueのときにイベントを発生させる
+
+    function draw(x, y) {
+      if (!isDrag) {
+        return;
+      }
+
+      if (lastPosition.x === null || lastPosition.y === null) {
+        // ドラッグ開始時の線の開始位置
+        ctxdraw.moveTo(x, y);
+      } else {
+        // ドラッグ中の線の開始位置
+        ctxdraw.moveTo(lastPosition.x, lastPosition.y);
+      }
+
+      ctxdraw.lineTo(x, y);
+      ctxdraw.stroke();
+      lastPosition.x = x;
+      lastPosition.y = y; /////////////////
+    }
+
+    ; //全て削除
+
+    function clear() {
+      ctxdraw.clearRect(0, 0, canvasdraw.width, canvasdraw.height);
+    }
+
+    function dragStart(event) {
+      // これから新しい線を書き始めることを宣言する
+      // 一連の線を書く処理が終了したらdragEnd関数内のclosePathで終了を宣言する
+      ctxdraw.beginPath();
+      isDrag = true;
+    }
+
+    function dragEnd(event) {
+      // 線を書く処理の終了を宣言する
+      ctxdraw.closePath();
+      isDrag = false; // 描画中に記録していた値をリセットする
+
+      lastPosition.x = null;
+      lastPosition.y = null;
+    }
+
+    function initEventHandler() {
+      var clearButton = document.querySelector("#clear-button".concat(step));
+      clearButton.addEventListener('click', clear);
+      canvasdraw.addEventListener('mousedown', dragStart);
+      canvasdraw.addEventListener('mouseup', dragEnd);
+      canvasdraw.addEventListener('mouseout', dragEnd);
+      canvasdraw.addEventListener('mousemove', function (event) {
+        draw(event.layerX, event.layerY);
+      });
+    }
+
+    initEventHandler(); //canvasに画像
+  };
+
+  for (var step = 1; step <= count; step++) {
+    var w;
+    var h;
+
+    _loop(step);
+  }
+
+  ;
+};
 
 /***/ }),
 
