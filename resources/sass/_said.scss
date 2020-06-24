@@ -1,0 +1,50 @@
+.show__said{
+  width: 20%;
+  height: 100%;
+  
+ 
+  
+  right: 0;
+  &__attack{
+    display: flex;
+    flex-wrap: wrap;
+    
+    .box{
+      width: 25%;
+      transition: 1s;
+      cursor: pointer;
+      &:hover {
+        background-color: #adadad;
+        text-decoration: none;
+        transform: scale(5px);
+      }
+      img{
+        // object-fit: c
+        max-width: 100%;
+        height: auto;
+        width /***/:auto;
+        padding: 5px;
+                  
+      }
+    }
+  }
+  &__defense{
+    display: flex;
+    flex-wrap: wrap;
+    .box{
+      width: 25%;
+      transition: transform 1s;
+      cursor: pointer;
+      &:hover {
+        background-color: #adadad;
+      
+        transform: translate(5px);
+      }
+      img{
+        max-width: 100%;
+        height: auto;
+        width /***/:auto;
+      }
+    }
+  }
+}

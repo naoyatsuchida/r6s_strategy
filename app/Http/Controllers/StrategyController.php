@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \App\Models\Map_Category;
+use \App\Models\Operation;
 use Illuminate\Support\Facades\DB;
 
 class StrategyController extends Controller
@@ -51,7 +52,9 @@ class StrategyController extends Controller
     public function show($id)
     {
         $maps = Map_Category::descendantsOf($id);
-        return view('strategy.show',compact('maps'));
+        $OperationAttack = Operation::where('role','attack')->get();
+        $OperationDefense = Operation::where('role','defense')->get();
+        return view('strategy.show',compact('maps','OperationAttack','OperationDefense'));
     }
 
     /**

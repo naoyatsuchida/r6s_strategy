@@ -10980,10 +10980,53 @@ a.text-dark:focus {
 
 .show__said {
   width: 20%;
-  height: 100vh;
-  background-color: red;
-  position: absolute;
-  position: fixed;
+  height: 100%;
   right: 0;
+}
+
+.show__said__attack {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.show__said__attack .box {
+  width: 25%;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.show__said__attack .box:hover {
+  background-color: #adadad;
+  text-decoration: none;
+  transform: scale(5px);
+}
+
+.show__said__attack .box img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  padding: 5px;
+}
+
+.show__said__defense {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.show__said__defense .box {
+  width: 25%;
+  transition: transform 1s;
+  cursor: pointer;
+}
+
+.show__said__defense .box:hover {
+  background-color: #adadad;
+  transform: translate(5px);
+}
+
+.show__said__defense .box img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
 }
 

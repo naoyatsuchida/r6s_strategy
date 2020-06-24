@@ -207,6 +207,19 @@ class OperationsTableSeeder extends Seeder
                 'role' => 'defense',
             ],
             [
+                'name' => 'カプカン',
+                'path' => 'images/icon/defense/kapkan.png',
+                'color' => 'A81814',
+                'role' => 'defense',
+            ],
+            [
+                'name' => 'タチャンカ',
+                'path' => 'images/icon/defense/tachanka.png',
+                'color' => 'A81814',
+                'role' => 'defense',
+            ],
+
+            [
                 'name' => 'ドク',
                 'path' => 'images/icon/defense/doc.jpg',
                 'color' => '396188',
