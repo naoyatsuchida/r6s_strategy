@@ -49759,10 +49759,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   !*** ./resources/js/canvas.js ***!
   \********************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 window.onload = function () {
-  //canvasタグに画像を表示させる
+  //canvasタグに画像を表示させ
   var count = document.getElementById('count').value;
 
   var _loop = function _loop(step) {
@@ -49810,15 +49810,13 @@ window.onload = function () {
     // 線の状態を定義する
 
 
-    var currentcolor = 'red';
     ctxdraw.lineCap = 'round'; // 丸みを帯びた線にする
 
     ctxdraw.lineJoin = 'round'; // 丸みを帯びた線にする
 
     ctxdraw.lineWidth = 5; // 線の太さ
 
-    ctxdraw.strokeStyle = currentcolor; // 線の色
-    //マウスの位置を観測
+    ctxdraw.strokeStyle = 'red'; //マウスの位置を観測
 
     var lastPosition = {
       x: null,
@@ -49867,6 +49865,13 @@ window.onload = function () {
       lastPosition.y = null;
     }
 
+    function change_color() {
+      var color = document.getElementById("attack".concat(step) || false);
+      console.log(color);
+      currentcolor = color.dataset.color;
+      ctxdraw.strokeStyle = currentcolor;
+    }
+
     function initEventHandler() {
       var clearButton = document.querySelector("#clear-button".concat(step));
       clearButton.addEventListener('click', clear);
@@ -49876,6 +49881,8 @@ window.onload = function () {
       canvasdraw.addEventListener('mousemove', function (event) {
         draw(event.layerX, event.layerY);
       });
+      var box = document.querySelector('.show__said');
+      box.addEventListener('click', change_color);
     }
 
     initEventHandler(); //canvasに画像

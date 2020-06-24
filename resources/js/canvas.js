@@ -1,5 +1,5 @@
 window.onload = () =>{
-  //canvasタグに画像を表示させる
+  //canvasタグに画像を表示させ
   
   let count = document.getElementById('count').value;
   for (let step = 1; step <= count; step++) {
@@ -45,11 +45,11 @@ window.onload = () =>{
 
 
     // 線の状態を定義する
-    let currentcolor = 'red'
+   
     ctxdraw.lineCap = 'round'; // 丸みを帯びた線にする
     ctxdraw.lineJoin = 'round'; // 丸みを帯びた線にする
     ctxdraw.lineWidth = 5; // 線の太さ
-    ctxdraw.strokeStyle = currentcolor; // 線の色
+    ctxdraw.strokeStyle = 'red';
 
     //マウスの位置を観測
     const lastPosition = { x: null, y: null };
@@ -98,6 +98,14 @@ window.onload = () =>{
       lastPosition.y = null;
     }
 
+    function change_color(){
+      let color = document.getElementById(`attack${step}`|| `defense${step}`);
+      console.log(color);
+      currentcolor = color.dataset.color;
+      ctxdraw.strokeStyle = currentcolor;
+      
+    }
+
     function initEventHandler() {
       const clearButton = document.querySelector(`#clear-button${step}`);
       clearButton.addEventListener('click', clear);
@@ -106,13 +114,19 @@ window.onload = () =>{
       canvasdraw.addEventListener('mouseup', dragEnd);
       canvasdraw.addEventListener('mouseout', dragEnd);
       canvasdraw.addEventListener('mousemove', (event) => {
-       
-  
         draw(event.layerX, event.layerY);
       });
-    }
-    initEventHandler();
-    //canvasに画像
 
+      const box = document.querySelector('.show__said');
+      box.addEventListener('click', change_color);
+      
+  
+      
+    }
+
+    initEventHandler();
+ 
+    //canvasに画像
 };
+
 }
