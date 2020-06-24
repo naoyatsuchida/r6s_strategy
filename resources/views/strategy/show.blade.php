@@ -26,7 +26,8 @@
       <input type="submit">
     </form>
   </div>
-  @include('components.said',['title'=>'サイドバー'])
+  @include('components.said')
+
 </div>
   
 @endsection

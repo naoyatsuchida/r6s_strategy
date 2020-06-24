@@ -4,23 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStrategiesTable extends Migration
+class CreateOperationsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-
-    //  残タスク　mapデータを保存するためのカラムを設置する
     public function up()
     {
-        Schema::create('strategies', function (Blueprint $table) {
+        Schema::create('operations', function (Blueprint $table) {
             $table->id();
             $table->string('name',20);
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('map__category_id');
-            $table->text('comment');
+            $table->string('path');
+            $table->string('color',30);
+            $table->string('role',15);
+
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateStrategiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('strategies');
+        Schema::dropIfExists('operations');
     }
 }
