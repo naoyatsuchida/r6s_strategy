@@ -13,7 +13,7 @@ class MapTableSeeder extends Seeder
     {
         $maps = [
             [
-                // 'name' => '銀行',
+              
                 'path' => 'images/maps_top/bank.jpg',
                     'children' => [
                                             
@@ -165,12 +165,7 @@ class MapTableSeeder extends Seeder
         ];
 
         foreach($maps as $map){
-        // $n = new \App\Models\Map_Category;
-        // $n->name = $map['name'];
-        // $n->path = $map['path'];
-        
-        // var_dump($map['children']);
-        // $n->save();
+       
         \App\Models\Map_Category::create($map);
         }
         
