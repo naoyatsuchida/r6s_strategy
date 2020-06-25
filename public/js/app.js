@@ -49762,7 +49762,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ (function(module, exports) {
 
 window.onload = function () {
-  //canvasタグに画像を表示させる
+  //canvasタグに画像を表示させ
   var count = document.getElementById('count').value;
 
   var _loop = function _loop(step) {
@@ -49810,15 +49810,13 @@ window.onload = function () {
     // 線の状態を定義する
 
 
-    var currentcolor = 'red';
     ctxdraw.lineCap = 'round'; // 丸みを帯びた線にする
 
     ctxdraw.lineJoin = 'round'; // 丸みを帯びた線にする
 
     ctxdraw.lineWidth = 5; // 線の太さ
 
-    ctxdraw.strokeStyle = currentcolor; // 線の色
-    //マウスの位置を観測
+    ctxdraw.strokeStyle = 'red'; //マウスの位置を観測
 
     var lastPosition = {
       x: null,
@@ -49865,6 +49863,12 @@ window.onload = function () {
 
       lastPosition.x = null;
       lastPosition.y = null;
+    } //オペレーターそれぞれの色変更
+
+
+    function change_color(box) {
+      currentcolor = box.target.dataset.color;
+      ctxdraw.strokeStyle = currentcolor;
     }
 
     function initEventHandler() {
@@ -49875,6 +49879,11 @@ window.onload = function () {
       canvasdraw.addEventListener('mouseout', dragEnd);
       canvasdraw.addEventListener('mousemove', function (event) {
         draw(event.layerX, event.layerY);
+      }); // let box =document.querySelector('.box')
+      // box.addEventListener('click', change_color);
+
+      document.querySelectorAll('.box').forEach(function (box) {
+        box.addEventListener('click', change_color);
       });
     }
 
