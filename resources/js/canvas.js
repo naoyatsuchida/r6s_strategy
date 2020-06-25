@@ -97,11 +97,9 @@ window.onload = () =>{
       lastPosition.x = null;
       lastPosition.y = null;
     }
-
-    function change_color(){
-      let color = document.getElementById(`attack${step}`|| `defense${step}`);
-      console.log(color);
-      currentcolor = color.dataset.color;
+　　//オペレーターそれぞれの色変更
+    function change_color(box){
+      currentcolor = box.target.dataset.color;
       ctxdraw.strokeStyle = currentcolor;
       
     }
@@ -117,8 +115,12 @@ window.onload = () =>{
         draw(event.layerX, event.layerY);
       });
 
-      const box = document.querySelector('.show__said');
-      box.addEventListener('click', change_color);
+      // let box =document.querySelector('.box')
+      
+      // box.addEventListener('click', change_color);
+      document.querySelectorAll('.box').forEach(function(box){
+        box.addEventListener('click',change_color);
+      });
       
   
       

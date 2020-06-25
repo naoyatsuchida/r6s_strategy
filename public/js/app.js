@@ -49759,7 +49759,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
   !*** ./resources/js/canvas.js ***!
   \********************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 window.onload = function () {
   //canvasタグに画像を表示させ
@@ -49863,12 +49863,11 @@ window.onload = function () {
 
       lastPosition.x = null;
       lastPosition.y = null;
-    }
+    } //オペレーターそれぞれの色変更
 
-    function change_color() {
-      var color = document.getElementById("attack".concat(step) || false);
-      console.log(color);
-      currentcolor = color.dataset.color;
+
+    function change_color(box) {
+      currentcolor = box.target.dataset.color;
       ctxdraw.strokeStyle = currentcolor;
     }
 
@@ -49880,9 +49879,12 @@ window.onload = function () {
       canvasdraw.addEventListener('mouseout', dragEnd);
       canvasdraw.addEventListener('mousemove', function (event) {
         draw(event.layerX, event.layerY);
+      }); // let box =document.querySelector('.box')
+      // box.addEventListener('click', change_color);
+
+      document.querySelectorAll('.box').forEach(function (box) {
+        box.addEventListener('click', change_color);
       });
-      var box = document.querySelector('.show__said');
-      box.addEventListener('click', change_color);
     }
 
     initEventHandler(); //canvasに画像
