@@ -128,7 +128,4 @@ window.onload = () =>{
 
     initEventHandler();
  
-    //canvasに画像
-};
-
-}
+}}

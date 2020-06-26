@@ -23,6 +23,7 @@ class CreateStrategiesTable extends Migration
             $table->text('comment');
             $table->timestamps();
         });
+        
     }
 
     /**

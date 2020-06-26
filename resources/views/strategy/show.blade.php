@@ -21,10 +21,7 @@
      
       <button id="clear-button{{$loop->iteration}}">削除</button>
     @endforeach
-    <form action="#">
-      <input type="text">
-      <input type="submit">
-    </form>
+    @include('components.form')
   </div>
   @include('components.said')
 

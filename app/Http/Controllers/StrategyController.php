@@ -54,6 +54,7 @@ class StrategyController extends Controller
         $maps = Map_Category::descendantsOf($id);
         $OperationAttack = Operation::where('role','attack')->get();
         $OperationDefense = Operation::where('role','defense')->get();
+   
         return view('strategy.show',compact('maps','OperationAttack','OperationDefense'));
     }
 

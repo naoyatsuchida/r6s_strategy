@@ -49887,7 +49887,7 @@ window.onload = function () {
       });
     }
 
-    initEventHandler(); //canvasに画像
+    initEventHandler();
   };
 
   for (var step = 1; step <= count; step++) {
@@ -49896,8 +49896,6 @@ window.onload = function () {
 
     _loop(step);
   }
-
-  ;
 };
 
 /***/ }),
