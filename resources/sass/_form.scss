@@ -1,0 +1,23 @@
+.form_box{
+  padding: 15px;
+  border: 1px solid black;
+  margin: 15px 0 15px 0;
+  #strategy_name{
+    margin-bottom: 10px;
+  }
+  .select_attack{
+    display: none;
+  }
+  .select_defense{
+    display: none;
+  }
+  &__btn{
+    display: block;
+    margin: 10px;
+    width: 45px;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    
+  }
+}

@@ -114,18 +114,85 @@ window.onload = () =>{
       canvasdraw.addEventListener('mousemove', (event) => {
         draw(event.layerX, event.layerY);
       });
-
-      // let box =document.querySelector('.box')
-      
-      // box.addEventListener('click', change_color);
       document.querySelectorAll('.box').forEach(function(box){
         box.addEventListener('click',change_color);
       });
-      
-  
-      
     }
+
 
     initEventHandler();
  
-}}
+}
+
+//フォーム関係はこちら
+//プルダウンで使用する変数
+let role = document.getElementById('select_role');
+let operation = document.querySelectorAll('.select_form');
+let attack = document.querySelectorAll('.select_attack');
+let defense = document.querySelectorAll('.select_defense');
+
+//プルダウン オペレーターの選択
+function change_role(e){
+  
+  let or = e.target.value;
+  if(or == 0){
+  operation.forEach(function(o){
+    o.style.display='block';
+  });
+  
+  defense.forEach(function(d){
+    d.style.display='none';
+  });
+  attack.forEach(function(a){
+    a.style.display='block';
+  });
+  } else if(or == 1){
+    operation.forEach(function(o){
+      o.style.display='block';
+    });
+
+    attack.forEach(function(a){
+      a.style.display='none';
+    });
+    defense.forEach(function(d){
+      d.style.display='block';
+    });
+  } else {
+    operation.forEach(function(o){
+      o.style.display='none';
+    });
+  }
+}
+
+//次のフォームを出す
+let next1 = document.getElementById('next1');
+let next2 = document.getElementById('next2');
+let next3 = document.getElementById('next3');
+let next4 = document.getElementById('next4');
+
+function n1(){
+document.getElementById('second_form').style.display='block';
+}
+function n2(){
+document.getElementById('third_form').style.display='block';
+}
+function n3(){
+document.getElementById('four_form').style.display='block';
+}
+function n4(){
+document.getElementById('five_form').style.display='block';
+}
+
+
+
+
+function eventhundle(){
+role.addEventListener('change',change_role);
+next1.addEventListener('click',n1);
+next2.addEventListener('click',n2);
+next3.addEventListener('click',n3);
+next4.addEventListener('click',n4);
+};
+eventhundle();
+
+}

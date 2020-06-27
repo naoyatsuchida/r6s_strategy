@@ -11030,3 +11030,30 @@ a.text-dark:focus {
   width: auto;
 }
 
+.form_box {
+  padding: 15px;
+  border: 1px solid black;
+  margin: 15px 0 15px 0;
+}
+
+.form_box #strategy_name {
+  margin-bottom: 10px;
+}
+
+.form_box .select_attack {
+  display: none;
+}
+
+.form_box .select_defense {
+  display: none;
+}
+
+.form_box__btn {
+  display: block;
+  margin: 10px;
+  width: 45px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+

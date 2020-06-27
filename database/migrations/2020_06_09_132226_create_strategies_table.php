@@ -12,7 +12,7 @@ class CreateStrategiesTable extends Migration
      * @return void
      */
 
-    //  残タスク　mapデータを保存するためのカラムを設置する
+    
     public function up()
     {
         Schema::create('strategies', function (Blueprint $table) {
@@ -23,7 +23,7 @@ class CreateStrategiesTable extends Migration
             $table->text('comment');
             $table->timestamps();
         });
-        
+
     }
 
     /**
