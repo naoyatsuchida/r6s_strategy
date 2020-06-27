@@ -21,52 +21,20 @@
         {{Form::textarea('comments[]', '', ['placeholder' => '選択オペレーターの役割','class' => 'operater_comment'])}}
         <div class="form_box__btn btn-primary" id="next1">next</div>
     </div>
-    <!-- 二つ目のフォーム -->
-    <div class="operater_forms" id="second_form" style="display: none;">
+    <!-- 二つ目のフォーム以降繰り返し -->
+    @for($i = 2;$i < 6; $i++)
+    <div class="operater_forms" id="form{{$i}}" style="display: none;">
         
-        <span class="select_form" style="display: none;">NO2:
+        <span class="select_form" style="display: none;">NO{{$i}}:
             {{Form::select('operation_ids[]', [$OperationAttack->pluck('name')], '', ['placeholder' => '攻撃オペレーター','class' => 'select_attack'])}}
             {{Form::select('operation_ids[]', [$OperationDefense->pluck('name')], '', ['placeholder' => '防衛オペレーター','class' => 'select_defense'])}}
         </span>
         <br>
         {{Form::textarea('comments[]', '', ['placeholder' => '選択オペレーターの役割','class' => 'operater_comment'])}}
-        <div class="form_box__btn btn-primary" id="next2">next</div>
+        <div class="form_box__btn btn-primary" id="next{{$i}}">next</div>
     </div>
-    <!-- 三つ目のフォーム -->
-    <div class="operater_forms" id="third_form" style="display: none;">
-        <br>
-        <span class="select_form" style="display: none;">NO3:
-            {{Form::select('operation_ids[]', [$OperationAttack->pluck('name')], '', ['placeholder' => '攻撃オペレーター','class' => 'select_attack'])}}
-            {{Form::select('operation_ids[]', [$OperationDefense->pluck('name')], '', ['placeholder' => '防衛オペレーター','class' => 'select_defense'])}}
-        </span>
-        <br>
-        {{Form::textarea('comments[]', '', ['placeholder' => '選択オペレーターの役割','class' => 'operater_comment'])}}
-        <div class="form_box__btn btn-primary" id="next3">next</div>
-    </div>
-    <!-- 四つ目のフォーム -->
-    <div class="operater_forms" id="four_form" style="display: none;">
-        <br>
-        <span class="select_form" style="display: none;">NO4:
-            {{Form::select('operation_ids[]', [$OperationAttack->pluck('name')], '', ['placeholder' => '攻撃オペレーター','class' => 'select_attack'])}}
-            {{Form::select('operation_ids[]', [$OperationDefense->pluck('name')], '', ['placeholder' => '防衛オペレーター','class' => 'select_defense'])}}
-        </span>
-        <br>
-        {{Form::textarea('comments[]', '', ['placeholder' => '選択オペレーターの役割','class' => 'operater_comment'])}}
-        <div class="form_box__btn btn-primary" id="next4">next</div>
-    </div>
-    <!-- 五つ目のフォーム -->
-    <div class="operater_forms" id="five_form" style="display: none;">
-        
-        <br>
-        <span class="select_form" style="display: none;">NO5:
-            {{Form::select('operation_ids[]', [$OperationAttack->pluck('name')], '', ['placeholder' => '攻撃オペレーター','class' => 'select_attack'])}}
-            {{Form::select('operation_ids[]', [$OperationDefense->pluck('name')], '', ['placeholder' => '防衛オペレーター','class' => 'select_defense'])}}
-        </span>
-        <br>
-        {{Form::textarea('comments[]', '', ['placeholder' => '選択オペレーターの役割','class' => 'operater_comment'])}}
-        
-    </div>
-    
+    @endfor
+
     {{Form::submit('更新', ['name' => 'update', 'class' => 'btn btn-primary', 'onfocus' => 'this.blur();'])}}
     {{ Form::close() }}
 </div>

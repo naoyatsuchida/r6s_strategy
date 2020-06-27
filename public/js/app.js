@@ -49939,19 +49939,19 @@ window.onload = function () {
   var next4 = document.getElementById('next4');
 
   function n1() {
-    document.getElementById('second_form').style.display = 'block';
+    document.getElementById('form2').style.display = 'block';
   }
 
   function n2() {
-    document.getElementById('third_form').style.display = 'block';
+    document.getElementById('form3').style.display = 'block';
   }
 
   function n3() {
-    document.getElementById('four_form').style.display = 'block';
+    document.getElementById('form4').style.display = 'block';
   }
 
   function n4() {
-    document.getElementById('five_form').style.display = 'block';
+    document.getElementById('form5').style.display = 'block';
   }
 
   function eventhundle() {
