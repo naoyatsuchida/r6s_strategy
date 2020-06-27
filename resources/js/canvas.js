@@ -181,6 +181,7 @@ document.getElementById('form4').style.display='block';
 }
 function n4(){
 document.getElementById('form5').style.display='block';
+document.getElementById('next5').remove();
 }
 
 
