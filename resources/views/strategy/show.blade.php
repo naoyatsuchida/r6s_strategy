@@ -4,7 +4,14 @@
 @section('content')
 <div class='show'>
   <div class="show__img">
+    
     @foreach($maps as $map)
+    <span class="show__img__no">
+      NO:{{$loop->iteration}}
+    </span>  
+    <div class='show__img__clear'>
+      <button class='btn-primary' id="clear-button{{$loop->iteration}}"><span>NO:{{$loop->iteration}}を削除</span></button>
+    </div>
     
     
     <div class="show__img__map" id="canvas_container">
@@ -17,14 +24,10 @@
         
         
         
-      </div>
+    </div>
      
-      <button id="clear-button{{$loop->iteration}}">削除</button>
     @endforeach
-    <form action="#">
-      <input type="text">
-      <input type="submit">
-    </form>
+    @include('components.form')
   </div>
   @include('components.said')
 

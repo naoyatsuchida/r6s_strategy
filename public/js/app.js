@@ -49879,15 +49879,13 @@ window.onload = function () {
       canvasdraw.addEventListener('mouseout', dragEnd);
       canvasdraw.addEventListener('mousemove', function (event) {
         draw(event.layerX, event.layerY);
-      }); // let box =document.querySelector('.box')
-      // box.addEventListener('click', change_color);
-
+      });
       document.querySelectorAll('.box').forEach(function (box) {
         box.addEventListener('click', change_color);
       });
     }
 
-    initEventHandler(); //canvasに画像
+    initEventHandler();
   };
 
   for (var step = 1; step <= count; step++) {
@@ -49895,9 +49893,77 @@ window.onload = function () {
     var h;
 
     _loop(step);
+  } //フォーム関係はこちら
+  //プルダウンで使用する変数
+
+
+  var role = document.getElementById('select_role');
+  var operation = document.querySelectorAll('.select_form');
+  var attack = document.querySelectorAll('.select_attack');
+  var defense = document.querySelectorAll('.select_defense'); //プルダウン オペレーターの選択
+
+  function change_role(e) {
+    var or = e.target.value;
+
+    if (or == 0) {
+      operation.forEach(function (o) {
+        o.style.display = 'block';
+      });
+      defense.forEach(function (d) {
+        d.style.display = 'none';
+      });
+      attack.forEach(function (a) {
+        a.style.display = 'block';
+      });
+    } else if (or == 1) {
+      operation.forEach(function (o) {
+        o.style.display = 'block';
+      });
+      attack.forEach(function (a) {
+        a.style.display = 'none';
+      });
+      defense.forEach(function (d) {
+        d.style.display = 'block';
+      });
+    } else {
+      operation.forEach(function (o) {
+        o.style.display = 'none';
+      });
+    }
+  } //次のフォームを出す
+
+
+  var next1 = document.getElementById('next1');
+  var next2 = document.getElementById('next2');
+  var next3 = document.getElementById('next3');
+  var next4 = document.getElementById('next4');
+
+  function n1() {
+    document.getElementById('form2').style.display = 'block';
+  }
+
+  function n2() {
+    document.getElementById('form3').style.display = 'block';
+  }
+
+  function n3() {
+    document.getElementById('form4').style.display = 'block';
+  }
+
+  function n4() {
+    document.getElementById('form5').style.display = 'block';
+  }
+
+  function eventhundle() {
+    role.addEventListener('change', change_role);
+    next1.addEventListener('click', n1);
+    next2.addEventListener('click', n2);
+    next3.addEventListener('click', n3);
+    next4.addEventListener('click', n4);
   }
 
   ;
+  eventhundle();
 };
 
 /***/ }),
