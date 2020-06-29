@@ -130,11 +130,12 @@ let role = document.getElementById('select_role');
 let operation = document.querySelectorAll('.select_form');
 let attack = document.querySelectorAll('.select_attack');
 let defense = document.querySelectorAll('.select_defense');
+let or = [];
 
 //プルダウン オペレーターの選択
 function change_role(e){
-  
-  let or = e.target.value;
+  or = [];
+  or = e.target.value;
   //攻撃を選択した場合
   if(or == 0){
   operation.forEach(function(o){
@@ -174,7 +175,7 @@ let next2 = document.getElementById('next2');
 let next3 = document.getElementById('next3');
 let next4 = document.getElementById('next4');
 
-function n1(){w
+function n1(){
 document.getElementById('form2').style.display='block';
 }
 function n2(){
@@ -189,38 +190,39 @@ document.getElementById('next5').remove();
 }
 
 
-let handle = document.getElementById('select_role').value;
-
 function valid(){
   
+  
   //攻撃オペが選択されている時
-  if(handle == 0){
-    let defense_delete = document.querySelectorAll('select_defense');
+  if(or == 0){
+    let defense_delete = document.querySelectorAll('.select_defense');
+
     defense_delete.forEach(function(d){
 
-      d.remove();
-    })} //防衛オペが選択されている時 
-    else if(handle == 1){
-      let attack_delete = document.querySelectorAll('select_attack');
+    d.remove();
+    });
+  } //防衛オペが選択されている時 
+    else if(or == 1){
+      let attack_delete = document.querySelectorAll('.select_attack');
       attack_delete.forEach(function(a){
-        a.remove();
+      a.remove();
         
-      })
+      });
     }
   }
 
 
 
-  let operater_form = document.getElementById('submit');
-  
+  let operater_form = document.getElementById('form');
+ 
+
   function eventhundle(){
     role.addEventListener('change',change_role);
     next1.addEventListener('click',n1);
     next2.addEventListener('click',n2);
     next3.addEventListener('click',n3);
     next4.addEventListener('click',n4);
-    
-    operater_form.addEventListener('click',console.log('動く'));
+    operater_form.addEventListener('click',valid);
 };
 eventhundle();
 

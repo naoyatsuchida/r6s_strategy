@@ -49900,36 +49900,39 @@ window.onload = function () {
   var role = document.getElementById('select_role');
   var operation = document.querySelectorAll('.select_form');
   var attack = document.querySelectorAll('.select_attack');
-  var defense = document.querySelectorAll('.select_defense'); //プルダウン オペレーターの選択
+  var defense = document.querySelectorAll('.select_defense');
+  var or = []; //プルダウン オペレーターの選択
 
   function change_role(e) {
-    var or = e.target.value;
+    or = [];
+    or = e.target.value; //攻撃を選択した場合
 
     if (or == 0) {
       operation.forEach(function (o) {
         o.style.display = 'block';
       });
-      defense.forEach(function (d) {
-        d.style.display = 'none';
-      });
       attack.forEach(function (a) {
         a.style.display = 'block';
       });
-    } else if (or == 1) {
-      operation.forEach(function (o) {
-        o.style.display = 'block';
-      });
-      attack.forEach(function (a) {
-        a.style.display = 'none';
-      });
       defense.forEach(function (d) {
-        d.style.display = 'block';
+        d.style.display = 'none';
       });
-    } else {
-      operation.forEach(function (o) {
-        o.style.display = 'none';
-      });
-    }
+    } //防衛を選択した場合
+    else if (or == 1) {
+        operation.forEach(function (o) {
+          o.style.display = 'block';
+        });
+        attack.forEach(function (a) {
+          a.style.display = 'none';
+        });
+        defense.forEach(function (d) {
+          d.style.display = 'block';
+        });
+      } else {
+        operation.forEach(function (o) {
+          o.style.display = 'none';
+        });
+      }
   } //次のフォームを出す
 
 
@@ -49955,12 +49958,31 @@ window.onload = function () {
     document.getElementById('next5').remove();
   }
 
+  function valid() {
+    //攻撃オペが選択されている時
+    if (or == 0) {
+      var defense_delete = document.querySelectorAll('.select_defense');
+      defense_delete.forEach(function (d) {
+        d.remove();
+      });
+    } //防衛オペが選択されている時 
+    else if (or == 1) {
+        var attack_delete = document.querySelectorAll('.select_attack');
+        attack_delete.forEach(function (a) {
+          a.remove();
+        });
+      }
+  }
+
+  var operater_form = document.getElementById('form');
+
   function eventhundle() {
     role.addEventListener('change', change_role);
     next1.addEventListener('click', n1);
     next2.addEventListener('click', n2);
     next3.addEventListener('click', n3);
     next4.addEventListener('click', n4);
+    operater_form.addEventListener('click', valid);
   }
 
   ;

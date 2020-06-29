@@ -41,7 +41,7 @@ class StrategyController extends Controller
      */
     public function store(Request $request)
     {
-        $id = Auth::id();
+   
         $strategy = new Strategy;
         // $strategy->name = $request->input('name');
         // $strategy->map_url = $request->input('strategies.*.map_url');
@@ -49,9 +49,8 @@ class StrategyController extends Controller
         // $strategy->comment = $request->input('strategies.*.comments');
         $strategy = $request->all();
         $strategy['user_id'] = Auth::id();
-        // dd($strategy);
-        $maps = Map_Category::get()->toTree();
-        return view('strategy.index',compact('maps'));
+        dd($strategy);
+   
   
 
     }

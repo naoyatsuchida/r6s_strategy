@@ -1,6 +1,6 @@
 <div class="form_box">
 
-    {{ Form::open(['url'=> "#", 'method' => 'post','id'=>'operater_form']) }}
+    {{ Form::open(['url'=> "strategy/store", 'method' => 'post','id'=>'operater_form']) }}
     <!-- 一つ目のフォーム -->
     <div class="operater_forms" id="first_form" >
         <!-- ユーザーとマップurlをhiddenで入力 -->
@@ -35,7 +35,7 @@
     </div>
     @endfor
      <div id='submit'>お試しボタン</div>
-    {{Form::submit('更新', ['name' => 'update', 'class' => 'btn btn-primary', 'onfocus' => 'this.blur();'])}}
+    {{Form::submit('save', ['id'=>'form','name' => 'update', 'class' => 'btn btn-primary', 'onfocus' => 'this.blur();'])}}
     {{ Form::close() }}
 </div>
     

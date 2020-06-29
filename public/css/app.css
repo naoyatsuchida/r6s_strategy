@@ -11066,7 +11066,7 @@ a.text-dark:focus {
 .form_box__btn {
   display: block;
   margin: 10px;
-  width: 45px;
+  width: 100px;
   border-radius: 20px;
   text-align: center;
   cursor: pointer;
