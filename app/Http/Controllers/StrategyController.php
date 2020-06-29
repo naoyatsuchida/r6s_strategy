@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use \App\Models\Map_Category;
 use \App\Models\Operation;
 use Illuminate\Support\Facades\DB;
+use \App\Models\Strategy;
 
 class StrategyController extends Controller
 {
@@ -40,7 +41,19 @@ class StrategyController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $id = Auth::id();
+        $strategy = new Strategy;
+        // $strategy->name = $request->input('name');
+        // $strategy->map_url = $request->input('strategies.*.map_url');
+        // $strategy->operation = operations()->attach($request->input('strategies.*.operation_ids'));
+        // $strategy->comment = $request->input('strategies.*.comments');
+        $strategy = $request->all();
+        $strategy['user_id'] = Auth::id();
+        // dd($strategy);
+        $maps = Map_Category::get()->toTree();
+        return view('strategy.index',compact('maps'));
+  
+
     }
 
     /**
@@ -52,9 +65,11 @@ class StrategyController extends Controller
     public function show($id)
     {
         $maps = Map_Category::descendantsOf($id);
-        $OperationAttack = Operation::where('role','attack')->get();
-        $OperationDefense = Operation::where('role','defense')->get();
-        return view('strategy.show',compact('maps','OperationAttack','OperationDefense'));
+        $OperationAttack = Operation::OperationAttack();
+        $OperationDefense = Operation::OperationDefense();
+        $attackpath = Operation::where('role','attack')->get();
+        $defensepath = Operation::where('role','defense')->get();
+        return view('strategy.show',compact('maps','OperationAttack','OperationDefense','attackpath','defensepath'));
     }
 
     /**

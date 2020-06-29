@@ -1,9 +1,9 @@
 window.onload = () =>{
   //canvasタグに画像を表示させ
-  
+
   let count = document.getElementById('count').value;
   for (let step = 1; step <= count; step++) {
-    
+ 
       const canvas = document.querySelector(`#CanvasMap${step}`);
       const ctx = canvas.getContext( "2d" ) ;
       const canvasdraw = document.querySelector(`#CanvasDraw${step}`);
@@ -135,18 +135,22 @@ let defense = document.querySelectorAll('.select_defense');
 function change_role(e){
   
   let or = e.target.value;
+  //攻撃を選択した場合
   if(or == 0){
   operation.forEach(function(o){
     o.style.display='block';
   });
   
-  defense.forEach(function(d){
-    d.style.display='none';
-  });
   attack.forEach(function(a){
     a.style.display='block';
   });
-  } else if(or == 1){
+
+  defense.forEach(function(d){
+    d.style.display='none';
+
+  });
+  } //防衛を選択した場合
+  else if(or == 1){
     operation.forEach(function(o){
       o.style.display='block';
     });
@@ -170,7 +174,7 @@ let next2 = document.getElementById('next2');
 let next3 = document.getElementById('next3');
 let next4 = document.getElementById('next4');
 
-function n1(){
+function n1(){w
 document.getElementById('form2').style.display='block';
 }
 function n2(){
@@ -185,14 +189,38 @@ document.getElementById('next5').remove();
 }
 
 
+let handle = document.getElementById('select_role').value;
+
+function valid(){
+  
+  //攻撃オペが選択されている時
+  if(handle == 0){
+    let defense_delete = document.querySelectorAll('select_defense');
+    defense_delete.forEach(function(d){
+
+      d.remove();
+    })} //防衛オペが選択されている時 
+    else if(handle == 1){
+      let attack_delete = document.querySelectorAll('select_attack');
+      attack_delete.forEach(function(a){
+        a.remove();
+        
+      })
+    }
+  }
 
 
-function eventhundle(){
-role.addEventListener('change',change_role);
-next1.addEventListener('click',n1);
-next2.addEventListener('click',n2);
-next3.addEventListener('click',n3);
-next4.addEventListener('click',n4);
+
+  let operater_form = document.getElementById('submit');
+  
+  function eventhundle(){
+    role.addEventListener('change',change_role);
+    next1.addEventListener('click',n1);
+    next2.addEventListener('click',n2);
+    next3.addEventListener('click',n3);
+    next4.addEventListener('click',n4);
+    
+    operater_form.addEventListener('click',console.log('動く'));
 };
 eventhundle();
 
