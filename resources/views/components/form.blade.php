@@ -5,6 +5,7 @@
     <div class="operater_forms" id="first_form" >
         <!-- ユーザーとマップurlをhiddenで入力 -->
         {{Form::hidden('map_url[]','null',['id' => 'map_url'])}}
+        {{Form::hidden('map_line[]','null',['id' => 'map_line'])}}
     
         <!-- ユーザーとマップurlをhiddenで入力 -->
         {{Form::label('','タイトル：')}}

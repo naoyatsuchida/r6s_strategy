@@ -14,7 +14,7 @@ class AddMapLineToStrategiesTable extends Migration
     public function up()
     {
         Schema::table('strategies', function (Blueprint $table) {
-            //
+            $table->text('map_line');
         });
     }
 
@@ -26,7 +26,7 @@ class AddMapLineToStrategiesTable extends Migration
     public function down()
     {
         Schema::table('strategies', function (Blueprint $table) {
-            //
+            $table->dropColumn('map_line');
         });
     }
 }

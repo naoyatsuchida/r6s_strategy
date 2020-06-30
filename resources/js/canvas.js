@@ -16,8 +16,11 @@ window.onload = () =>{
       $(`#CanvasMap${step}`).attr('height', h);
       $(`#CanvasDraw${step}`).attr('width', w);
       $(`#CanvasDraw${step}`).attr('height', h);
+      $(`#Image${step}`).attr('width', w);
+      $(`#Image${step}`).attr('height', h);
       
       //画像表示する
+ 
       let img = new Image();
       img.src = document.getElementById(`pass${step}`).value;
       img.onload = () => {
@@ -38,6 +41,7 @@ window.onload = () =>{
       }
       ctx.drawImage(img, 0, 0, img.width, img.height, 
           left, top, width, height);
+         
       }
     ///////////////画像関係とじ
 
@@ -99,15 +103,46 @@ window.onload = () =>{
     }
 　　//オペレーターそれぞれの色変更
     function change_color(box){
-      currentcolor = box.target.dataset.color;
-      ctxdraw.strokeStyle = currentcolor;
+   
+      ctxdraw.strokeStyle = box.target.dataset.color;
       
     }
+    
+    
+   
 
+    // 複数のcanvasを一つのcanvasに統合する
+    async function concatCanvas(base,asset){
+
+      const can = document.getElementById(base);
+      
+      const ctx = can.getContext("2d");
+
+      for(let i=0; i<asset.length; i++){
+      const image1 = await getImagefromCanvas(asset[i]);
+      
+  
+      ctx.drawImage(image1, 0, 0, can.width, can.height);
+    }
+    }
+
+    function getImagefromCanvas(id){
+      return new Promise((resolve, reject) => {
+        const image = new Image();
+        const ctx = document.querySelector(id).getContext("2d");
+      
+        image.onload = () => resolve(image);
+        image.onerror = (e) => reject(e);
+        image.src = document.getElementById(`pass${step}`).value;
+        image.src = ctx.canvas.toDataURL('image/jpeg');
+        
+      });
+    }
+    
     function initEventHandler() {
       const clearButton = document.querySelector(`#clear-button${step}`);
       clearButton.addEventListener('click', clear);
-  
+      
       canvasdraw.addEventListener('mousedown', dragStart);
       canvasdraw.addEventListener('mouseup', dragEnd);
       canvasdraw.addEventListener('mouseout', dragEnd);
@@ -117,6 +152,13 @@ window.onload = () =>{
       document.querySelectorAll('.box').forEach(function(box){
         box.addEventListener('click',change_color);
       });
+
+      document.querySelector("#submit").addEventListener("click", ()=>{
+        concatCanvas(`Image${step}`,[`#CanvasMap${step}`,`#CanvasDraw${step}`]);
+      });
+      
+    
+      
     }
 
 

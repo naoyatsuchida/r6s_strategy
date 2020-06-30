@@ -46,6 +46,7 @@ class StrategyController extends Controller
                                         'user_id' => Auth::id()]);
         
         $strategy->map_url = serialize($request->input('map_url'));
+        $strategy->map_line = serialize($request->input('map_line'));
         $strategy->operations()->attach($request->input('operation_id'));
         $strategy->comment = serialize($request->input('comments'));
         

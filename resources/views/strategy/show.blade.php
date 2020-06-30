@@ -20,8 +20,9 @@
           <input type="hidden" id='count' value="{{$loop->count}}" class="img_pass">
         </form>
         <canvas id='CanvasMap{{$loop->iteration}}' ></canvas>
+        <canvas id="Image{{$loop->iteration}}" ></canvas>
         <canvas id="CanvasDraw{{$loop->iteration}}"></canvas>
-        
+
         
         
     </div>
