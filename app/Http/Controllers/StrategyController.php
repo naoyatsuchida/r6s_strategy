@@ -41,16 +41,22 @@ class StrategyController extends Controller
      */
     public function store(Request $request)
     {
-   
-        $strategy = new Strategy;
-        // $strategy->name = $request->input('name');
-        // $strategy->map_url = $request->input('strategies.*.map_url');
-        // $strategy->operation = operations()->attach($request->input('strategies.*.operation_ids'));
-        // $strategy->comment = $request->input('strategies.*.comments');
-        $strategy = $request->all();
-        $strategy['user_id'] = Auth::id();
-        dd($strategy);
-   
+        //先にstrategyのインスタンスを作成しないと整合性が取れてないと怒られる。
+        $strategy = Strategy::create(['name' => $request->input('name'),
+                                        'user_id' => Auth::id()]);
+        
+        $strategy->map_url = serialize($request->input('map_url'));
+        $strategy->operations()->attach($request->input('operation_id'));
+        $strategy->comment = serialize($request->input('comments'));
+        
+        $strategy->save();
+        
+        
+
+
+        $maps = Map_Category::get()->toTree();
+
+        return view('strategy.index',compact('maps'));
   
 
     }

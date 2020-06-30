@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Strategy_Operation extends Model
+use Illuminate\Database\Eloquent\Relations\Pivot;
+class Strategy_Operation extends Pivot
 {
-    //
+    protected $table = 'strategy_operation';
 }

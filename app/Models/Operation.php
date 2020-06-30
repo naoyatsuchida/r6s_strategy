@@ -8,14 +8,10 @@ class Operation extends Model
 {
     public function strategy()
     {
-        return $this->belongsToMany('App\Models\strategy','strategy_operation','operation_id','strategy_id')->using('App\Models\Strategy_Operation');
+        return $this->belongsToMany('App\Models\strategy','strategy_operation')->using('App\Models\Strategy_Operation');
     }
 
-    // public function __construct()
-    // {
-    //     $this->childProperties['key1'] = new ChildProperty();
-    //     $this->childProperties['key2'] = new ChildProperty();
-    // }
+
 
     public static function OperationAttack()
     {

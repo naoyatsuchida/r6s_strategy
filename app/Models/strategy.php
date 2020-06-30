@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Strategy extends Model
 {
+    public $guarded = [];
+
     public function user(){
         return $this->belongsTo('App\User');
     }
@@ -19,3 +21,5 @@ class Strategy extends Model
         return $this->belongsToMany('App\Models\Operation','strategy_operation','strategy_id','operation_id')->using('App\Models\Strategy_Operation');
     }
 }
+
+
