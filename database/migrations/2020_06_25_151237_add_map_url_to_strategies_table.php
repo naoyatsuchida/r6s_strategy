@@ -14,7 +14,7 @@ class AddMapUrlToStrategiesTable extends Migration
     public function up()
     {
         Schema::table('strategies', function (Blueprint $table) {
-            $table->text('map_url');
+            $table->longtext('map_url');
         });
     }
 
