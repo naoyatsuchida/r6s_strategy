@@ -15,15 +15,14 @@
     
     
     <div class="show__img__map" id="canvas_container">
-        <form action="#" >
+        <form action="">
           <input type="hidden" id='pass{{$loop->iteration}}' value="{{asset($map->path)}}" class="img_pass">
           <input type="hidden" id='count' value="{{$loop->count}}" class="img_pass">
+          <input type="hidden" name='map_url' value='[]' id='map_url{{$loop->iteration}}' >
         </form>
         <canvas id='CanvasMap{{$loop->iteration}}' ></canvas>
         <canvas id="Image{{$loop->iteration}}" ></canvas>
-        <canvas id="CanvasDraw{{$loop->iteration}}"></canvas>
-
-        
+        <canvas id="CanvasDraw{{$loop->iteration}}" class="map_date"></canvas>
         
     </div>
      

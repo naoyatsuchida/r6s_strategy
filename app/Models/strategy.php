@@ -12,9 +12,6 @@ class Strategy extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function map(){
-        return $this->belongsTo('App\Models\Map_Category');
-    }
 
     public function operations()
     {

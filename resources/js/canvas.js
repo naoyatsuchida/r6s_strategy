@@ -2,10 +2,15 @@ window.onload = () =>{
   //canvasタグに画像を表示させ
 
   let count = document.getElementById('count').value;
+  
   for (let step = 1; step <= count; step++) {
  
       const canvas = document.querySelector(`#CanvasMap${step}`);
       const ctx = canvas.getContext( "2d" ) ;
+      //背景を事前に白に塗りつぶす
+      ctx.fillStyle = "rgb(255, 255, 255)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
       const canvasdraw = document.querySelector(`#CanvasDraw${step}`);
       const ctxdraw = canvasdraw.getContext( "2d" ) ;
 
@@ -101,7 +106,7 @@ window.onload = () =>{
       lastPosition.x = null;
       lastPosition.y = null;
     }
-　　//オペレーターそれぞれの色変更
+    //オペレーターそれぞれの色変更
     function change_color(box){
    
       ctxdraw.strokeStyle = box.target.dataset.color;
@@ -113,32 +118,37 @@ window.onload = () =>{
 
     // 複数のcanvasを一つのcanvasに統合する
     async function concatCanvas(base,asset){
-
+      
       const can = document.getElementById(base);
       
       const ctx = can.getContext("2d");
-
-      for(let i=0; i<asset.length; i++){
-      const image1 = await getImagefromCanvas(asset[i]);
-      
   
-      ctx.drawImage(image1, 0, 0, can.width, can.height);
+      
+      for(let i=0; i<asset.length; i++){
+        const image1 = await getImagefromCanvas(asset[i]);
+        
+        
+        ctx.drawImage(image1, 0, 0, can.width, can.height);
+        
+       
+      }
+      
+     
     }
-    }
-
     function getImagefromCanvas(id){
       return new Promise((resolve, reject) => {
         const image = new Image();
         const ctx = document.querySelector(id).getContext("2d");
-      
         image.onload = () => resolve(image);
         image.onerror = (e) => reject(e);
-        image.src = document.getElementById(`pass${step}`).value;
-        image.src = ctx.canvas.toDataURL('image/jpeg');
+        image.src = ctx.canvas.toDataURL('image/png');
         
       });
     }
+    // 複数のcanvasを一つのcanvasに統合する//
     
+   
+
     function initEventHandler() {
       const clearButton = document.querySelector(`#clear-button${step}`);
       clearButton.addEventListener('click', clear);
@@ -153,12 +163,9 @@ window.onload = () =>{
         box.addEventListener('click',change_color);
       });
 
-      document.querySelector("#submit").addEventListener("click", ()=>{
+      document.querySelector("#form").addEventListener("click", ()=>{
         concatCanvas(`Image${step}`,[`#CanvasMap${step}`,`#CanvasDraw${step}`]);
-      });
-      
-    
-      
+      });      
     }
 
 
@@ -253,6 +260,27 @@ function valid(){
     }
   }
 
+  //マップULRを配列で送付するため
+  function map_url(){
+
+    document.querySelectorAll('.map_date').forEach(function(e){
+      let date = [];
+      
+      date.push(e.toDataURL(`image/png`,0,7));
+
+      let q = [];
+
+      q = document.createElement('input');
+      q.type = 'hidden';
+      q.name = 'map_url[]';
+      q.value = date;
+
+      document.querySelector('.map_array').append(q);
+ 
+    })
+ 
+  }
+
 
 
   let operater_form = document.getElementById('form');
@@ -265,6 +293,8 @@ function valid(){
     next3.addEventListener('click',n3);
     next4.addEventListener('click',n4);
     operater_form.addEventListener('click',valid);
+
+    document.querySelector('#form').addEventListener('click',map_url);
 };
 eventhundle();
 

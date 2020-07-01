@@ -50529,7 +50529,10 @@ window.onload = function () {
 
   var _loop = function _loop(step) {
     var canvas = document.querySelector("#CanvasMap".concat(step));
-    var ctx = canvas.getContext("2d");
+    var ctx = canvas.getContext("2d"); //背景を事前に白に塗りつぶす
+
+    ctx.fillStyle = "rgb(255, 255, 255)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     var canvasdraw = document.querySelector("#CanvasDraw".concat(step));
     var ctxdraw = canvasdraw.getContext("2d"); //canvasの幅を指定
 
@@ -50691,10 +50694,10 @@ window.onload = function () {
           return reject(e);
         };
 
-        image.src = document.getElementById("pass".concat(step)).value;
-        image.src = ctx.canvas.toDataURL('image/jpeg');
+        image.src = ctx.canvas.toDataURL('image/png');
       });
-    }
+    } // 複数のcanvasを一つのcanvasに統合する//
+
 
     function initEventHandler() {
       var clearButton = document.querySelector("#clear-button".concat(step));
@@ -50708,7 +50711,7 @@ window.onload = function () {
       document.querySelectorAll('.box').forEach(function (box) {
         box.addEventListener('click', change_color);
       });
-      document.querySelector("#submit").addEventListener("click", function () {
+      document.querySelector("#form").addEventListener("click", function () {
         concatCanvas("Image".concat(step), ["#CanvasMap".concat(step), "#CanvasDraw".concat(step)]);
       });
     }
@@ -50800,6 +50803,20 @@ window.onload = function () {
           a.remove();
         });
       }
+  } //マップULRを配列で送付するため
+
+
+  function map_url() {
+    document.querySelectorAll('.map_date').forEach(function (e) {
+      var date = [];
+      date.push(e.toDataURL("image/png", 0, 7));
+      var q = [];
+      q = document.createElement('input');
+      q.type = 'hidden';
+      q.name = 'map_url[]';
+      q.value = date;
+      document.querySelector('.map_array').append(q);
+    });
   }
 
   var operater_form = document.getElementById('form');
@@ -50811,6 +50828,7 @@ window.onload = function () {
     next3.addEventListener('click', n3);
     next4.addEventListener('click', n4);
     operater_form.addEventListener('click', valid);
+    document.querySelector('#form').addEventListener('click', map_url);
   }
 
   ;

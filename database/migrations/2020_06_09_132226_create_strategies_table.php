@@ -19,7 +19,7 @@ class CreateStrategiesTable extends Migration
             $table->id();
             $table->string('name',20);
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('map__category_id');
+        
             $table->text('comment');
             $table->timestamps();
         });

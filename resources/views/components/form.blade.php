@@ -4,10 +4,14 @@
     <!-- 一つ目のフォーム -->
     <div class="operater_forms" id="first_form" >
         <!-- ユーザーとマップurlをhiddenで入力 -->
-        {{Form::hidden('map_url[]','null',['id' => 'map_url'])}}
-        {{Form::hidden('map_line[]','null',['id' => 'map_line'])}}
+        <div class="map_array">
+
+            
+        </div>
+       
+
     
-        <!-- ユーザーとマップurlをhiddenで入力 -->
+        <!-- マップurlをhiddenで入力 -->
         {{Form::label('','タイトル：')}}
         {{Form::text('name', '', ['placeholder' => '作戦名','id' => 'strategy_name', 'size' => 50])}}
         <br>
