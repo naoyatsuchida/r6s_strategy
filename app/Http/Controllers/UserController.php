@@ -19,7 +19,8 @@ class UserController extends Controller
     // マイページ
     public function show($id)
     {
-        $strategies = User::find($id)->strategies()->get();
+        $strategies = User::find($id)->strategies()->orderBy('created_at','desc')->get();
+        
         $user = User::find($id);
         
         

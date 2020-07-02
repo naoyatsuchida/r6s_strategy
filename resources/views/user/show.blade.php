@@ -10,8 +10,17 @@
     
     @foreach($strategies as $s)
       <div class="box">
-        <p class="box__name">{{$s->name}}</p>
-           {{ unserialize(html_entity_decode($s->comment))}}
+        <p>{{$s->map_img($s->map_id)->name}}</p>
+        <img src="{{asset($s->map_img($s->map_id)->path)}}" alt="map_img">
+
+        <p class="box__name">作戦名:{{$s->name}}</p>
+        <ul>
+          @foreach($s->operations as $n)
+          <li>
+          {{$n->name}}
+          </li>
+          @endforeach
+        </ul>
         <a href="#">詳細</a>
       </div>
     @endforeach

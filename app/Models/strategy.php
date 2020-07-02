@@ -36,6 +36,9 @@ class Strategy extends Model
         
         return $respons;
     }
+
+    public function map_img($id){
+        return \App\Models\Map_Category::where('id',$id)->first();
+    }
+
 }
-
-
