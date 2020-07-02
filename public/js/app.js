@@ -50813,7 +50813,7 @@ window.onload = function () {
       var q = [];
       q = document.createElement('input');
       q.type = 'hidden';
-      q.name = 'map_url[]';
+      q.name = 'map_path[]';
       q.value = date;
       document.querySelector('.map_array').append(q);
     });

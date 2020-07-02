@@ -4,6 +4,7 @@
     <!-- 一つ目のフォーム -->
     <div class="operater_forms" id="first_form" >
         <!-- ユーザーとマップurlをhiddenで入力 -->
+        {{Form::hidden('map_id',"$map_id")}}
         <div class="map_array">
 
             
@@ -39,7 +40,7 @@
         <div class="form_box__btn btn-primary" id="next{{$i}}">next</div>
     </div>
     @endfor
-     <div id='submit'>お試しボタン</div>
+
     {{Form::submit('save', ['id'=>'form','name' => 'update', 'class' => 'btn btn-primary', 'onfocus' => 'this.blur();'])}}
     {{ Form::close() }}
 </div>

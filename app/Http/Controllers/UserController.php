@@ -19,8 +19,11 @@ class UserController extends Controller
     // マイページ
     public function show($id)
     {
-        $user = DB::table('users')->find($id);
-        return view('user.show',compact('user'));
+        $strategies = User::find($id)->strategies()->get();
+        $user = User::find($id);
+        
+        
+        return view('user.show',compact('user','strategies'));
     }
 
     /**
