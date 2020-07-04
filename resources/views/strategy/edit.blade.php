@@ -19,11 +19,13 @@
           <img src="{{asset($strategy->operation_color($ope)[0]->path)}}" alt="オペ画像"　class="download__content__ope__img">
           <div class="download__content__ope__come">
             <div class="ope">
-              <h5>{{$ope}}</h5>
+              <p>{{$ope}}</p>
               <div id='operation__line{{$loop->iteration}}' class="line_color"></div>
             </div>
-            <span id="operater_color{{$loop->iteration}}" data-color="{{$strategy->operation_color($ope)[0]->color}}"></span>
-            <p >{{$come}}</p>
+            <span  id="operater_color{{$loop->iteration}}" data-color="{{$strategy->operation_color($ope)[0]->color}}"></span>
+            <div class="download__content__ope__come__comment">
+              <p>{{$come}}</p>
+            </div>
           </div>
         
         </div>

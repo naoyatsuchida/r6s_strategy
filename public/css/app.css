@@ -11167,11 +11167,6 @@ a.text-dark:focus {
   place-items: center;
 }
 
-.download h4 {
-  text-align: center;
-  margin: 10px 0;
-}
-
 .download__content {
   width: 80%;
   margin: 0 auto;
@@ -11189,12 +11184,13 @@ a.text-dark:focus {
 }
 
 .download__content__ope {
-  height: 120px;
+  height: 150px;
   border-radius: 15px;
   border: 1px solid black;
   margin-bottom: 10px;
   padding: 10px;
   display: flex;
+  width: 100%;
 }
 
 .download__content__ope__img {
@@ -11205,15 +11201,28 @@ a.text-dark:focus {
 
 .download__content__ope__come {
   padding: 10px;
+  width: 100%;
 }
 
 .download__content__ope__come .ope {
   display: flex;
 }
 
+.download__content__ope__come .ope p {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
 .download__content__ope__come .line_color {
   width: 20px;
   height: 20px;
   color: white;
+}
+
+.download__content__ope__come__comment {
+  font-size: 0.9em;
+  border-top: 1px solid black;
+  width: 100%;
+  padding: 5px;
 }
 
