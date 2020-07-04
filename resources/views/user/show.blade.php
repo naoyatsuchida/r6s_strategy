@@ -21,7 +21,7 @@
           </li>
           @endforeach
         </ul>
-        <a href="#">詳細</a>
+        <a href="{{route('strategy.edit',['id'=> $s->id])}}">詳細</a>
       </div>
     @endforeach
   </div>

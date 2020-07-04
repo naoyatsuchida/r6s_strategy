@@ -11045,6 +11045,10 @@ a.text-dark:focus {
   width: auto;
 }
 
+#otamesi {
+  margin-bottom: 30px;
+}
+
 .form_box {
   padding: 15px;
   border: 1px solid black;

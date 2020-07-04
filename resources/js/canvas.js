@@ -2,7 +2,7 @@ window.onload = () =>{
   //canvasタグに画像を表示させ
 
   let count = document.getElementById('count').value;
-  
+
   for (let step = 1; step <= count; step++) {
  
       const canvas = document.querySelector(`#CanvasMap${step}`);
@@ -132,13 +132,14 @@ window.onload = () =>{
         
        
       }
-      
+    
      
     }
     function getImagefromCanvas(id){
       return new Promise((resolve, reject) => {
         const image = new Image();
         const ctx = document.querySelector(id).getContext("2d");
+
         image.onload = () => resolve(image);
         image.onerror = (e) => reject(e);
         image.src = ctx.canvas.toDataURL('image/png');
@@ -146,8 +147,11 @@ window.onload = () =>{
       });
     }
     // 複数のcanvasを一つのcanvasに統合する//
+    function comment(){
+      document.querySelector('.form_box').style.display='block';
+ 
+    }
     
-   
 
     function initEventHandler() {
       const clearButton = document.querySelector(`#clear-button${step}`);
@@ -163,11 +167,19 @@ window.onload = () =>{
         box.addEventListener('click',change_color);
       });
 
-      document.querySelector("#form").addEventListener("click", ()=>{
-        concatCanvas(`Image${step}`,[`#CanvasMap${step}`,`#CanvasDraw${step}`]);
-      });      
-    }
+      document.querySelectorAll(".box").forEach(function(e){
+        e.addEventListener("click", ()=>{
+          concatCanvas(`Image${step}`,[`#CanvasMap${step}`,`#CanvasDraw${step}`]);
+        }); 
+      }); 
+      
+      document.querySelector('#otamesi').addEventListener("click", ()=>{
+          concatCanvas(`Image${step}`,[`#CanvasMap${step}`,`#CanvasDraw${step}`]);
+        }); 
+      document.querySelector('#otamesi').addEventListener('click',comment);
 
+      
+    }
 
     initEventHandler();
  
@@ -262,25 +274,31 @@ function valid(){
 
   //マップULRを配列で送付するため
   function map_url(){
-
+    
     document.querySelectorAll('.map_date').forEach(function(e){
       let date = [];
-      
-      date.push(e.toDataURL(`image/png`,0,7));
-
+      date.push(e.toDataURL("image/png"));
       let q = [];
-
       q = document.createElement('input');
       q.type = 'hidden';
       q.name = 'map_path[]';
       q.value = date;
-
       document.querySelector('.map_array').append(q);
- 
-    })
- 
+   
+    });
+  
   }
 
+function click_btn(){
+  document.querySelector('#otamesi').click();
+}
+
+function idou(){
+  let point = document.querySelector('#first_form');
+  let rect = point.getBoundingClientRect();
+  let elemtop = rect.top + window.pageYOffset;
+  document.documentElement.scrollTop = elemtop;
+}
 
 
   let operater_form = document.getElementById('form');
@@ -293,8 +311,10 @@ function valid(){
     next3.addEventListener('click',n3);
     next4.addEventListener('click',n4);
     operater_form.addEventListener('click',valid);
+    document.querySelector('#form').addEventListener('click',click_btn);
 
-    document.querySelector('#form').addEventListener('click',map_url);
+    document.querySelector("#form").addEventListener('click',map_url);
+    document.querySelector('#otamesi').addEventListener('click',idou);
 };
 eventhundle();
 

@@ -1,4 +1,5 @@
-<div class="form_box">
+<button id="otamesi" class="btn-primary">コメントする</button>
+<div class="form_box"　style="display:none">
 
     {{ Form::open(['url'=> "strategy/store", 'method' => 'post','id'=>'operater_form']) }}
     <!-- 一つ目のフォーム -->
@@ -9,9 +10,6 @@
 
             
         </div>
-       
-
-    
         <!-- マップurlをhiddenで入力 -->
         {{Form::label('','タイトル：')}}
         {{Form::text('name', '', ['placeholder' => '作戦名','id' => 'strategy_name', 'size' => 50])}}
@@ -40,7 +38,7 @@
         <div class="form_box__btn btn-primary" id="next{{$i}}">next</div>
     </div>
     @endfor
-
+    
     {{Form::submit('save', ['id'=>'form','name' => 'update', 'class' => 'btn btn-primary', 'onfocus' => 'this.blur();'])}}
     {{ Form::close() }}
 </div>
