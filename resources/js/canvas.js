@@ -302,6 +302,19 @@ function idou(){
 
 
   let operater_form = document.getElementById('form');
+
+  function attackon(){
+    document.querySelector('.show__said__defense').style.display='none';
+    document.querySelector('.show__said__attack').style.display='block';
+    document.querySelector('.show__said__attack').style.display='flex';
+  
+  }
+
+  function defenseon(){
+    document.querySelector('.show__said__attack').style.display='none';
+    document.querySelector('.show__said__defense').style.display='block';
+    document.querySelector('.show__said__defense').style.display='flex';
+  }
  
 
   function eventhundle(){
@@ -315,7 +328,16 @@ function idou(){
 
     document.querySelector("#form").addEventListener('click',map_url);
     document.querySelector('#otamesi').addEventListener('click',idou);
+
+    document.querySelector('#attack').addEventListener('click',attackon)
+    document.querySelector('#defense').addEventListener('click',defenseon)
+
 };
 eventhundle();
+
+
+
+
+
 
 }

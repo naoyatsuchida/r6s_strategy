@@ -4,7 +4,7 @@
 @section('content')
 <div class='show'>
   <div class="show__img">
-
+  
   
     
     @foreach($maps as $map)

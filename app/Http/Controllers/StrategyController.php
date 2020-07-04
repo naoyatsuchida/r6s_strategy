@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use \App\Models\Strategy;
 use \App\User;
 
+
 class StrategyController extends Controller
 {
     /**
@@ -58,8 +59,10 @@ class StrategyController extends Controller
 
         //マイページに遷移させるために必要なデータ達
         $strategies = User::find(Auth::id())->strategies()->orderBy('created_at','desc')->get();
-        $user = User::find(Auth::id());
-        return view('user.show',compact('strategies','user'));
+        $id = User::find(Auth::id());
+        return redirect(route('user.show',[
+            'strategies' => $strategies,
+            'id' => $id]));
 
 
     }
@@ -91,7 +94,8 @@ class StrategyController extends Controller
     public function edit($id)
     {
         $strategy = Strategy::find($id);
-        return view('strategy.edit',compact('strategy'));
+        $ope_come = $strategy->operation_comment($strategy);
+        return view('strategy.edit',compact('strategy','ope_come'));
     }
 
     /**
