@@ -1,0 +1,72 @@
+.download{
+  padding: 10px;
+  &__bttom{
+    display: flex;
+    &__delete{
+      text-align: center;
+      size: 1.5em;
+      display: block;
+      width: 80px;
+      margin: 30px auto;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      
+    }
+    &__on{
+      text-align: center;
+      size: 1.5em;
+      display: block;
+      width: 100px;
+      margin: 30px auto;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      
+    }
+  }
+  h4{
+    text-align: center;
+    margin:  10px 0;
+  }
+  &__content{
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 10px;
+    &__name{
+      padding: 20px 0;
+    }
+    .map_img{
+    
+      padding-bottom: 10px;
+      display: block;
+    }
+
+    &__ope{
+      height: 120px;
+      border-radius: 15px;
+      border:1px solid black;
+      margin-bottom: 10px;
+      padding: 10px;
+      display: flex;
+      
+      &__img{
+      width: 100px;
+      height: 100px;
+      display: block;
+      }
+      &__come{
+        padding: 10px;
+        .ope{
+          display: flex;
+        }
+        .line_color{
+          width: 20px;
+          height: 20px;
+          color: white;
+        }
+      }
+    }
+  }
+}

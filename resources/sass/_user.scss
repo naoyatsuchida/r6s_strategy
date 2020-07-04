@@ -1,0 +1,46 @@
+.user{
+  &__title{
+    margin: 0 auto;
+    width: 200px;
+
+  }
+  &__contents{
+    width: 70%;
+    margin: 50px auto;
+    padding: 20px;
+  }
+
+  .box{
+    width: 90%;
+    height: 150px;
+    margin: 10px auto;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    position: relative;
+    img{
+      height: 130px;
+      width: 130px;
+      
+    }
+   
+    &__right{
+      padding: 10px;
+      li{
+        font-size: 0.8em;
+      }
+    }
+   .link{
+     position: absolute;
+     right: 10px;
+     top: 10px;
+     font-size: 1.2em;
+   }
+   a{
+     position: absolute;
+     right: 10px;
+   }
+
+  }
+
+}

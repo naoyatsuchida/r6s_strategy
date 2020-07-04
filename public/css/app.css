@@ -10996,7 +10996,14 @@ a.text-dark:focus {
 .show__said {
   width: 20%;
   height: 100%;
-  right: 0;
+  position: absolute;
+  position: fixed;
+  right: 15px;
+}
+
+.show__said button {
+  width: 40%;
+  height: 50px;
 }
 
 .show__said__attack {
@@ -11053,6 +11060,7 @@ a.text-dark:focus {
   padding: 15px;
   border: 1px solid black;
   margin: 15px 0 15px 0;
+  width: 90%;
 }
 
 .form_box #strategy_name {
@@ -11081,5 +11089,131 @@ a.text-dark:focus {
   display: block;
   height: 100px;
   box-sizing: fixed;
+}
+
+.user__title {
+  margin: 0 auto;
+  width: 200px;
+}
+
+.user__contents {
+  width: 70%;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.user .box {
+  width: 90%;
+  height: 150px;
+  margin: 10px auto;
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  position: relative;
+}
+
+.user .box img {
+  height: 130px;
+  width: 130px;
+}
+
+.user .box__right {
+  padding: 10px;
+}
+
+.user .box__right li {
+  font-size: 0.8em;
+}
+
+.user .box .link {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 1.2em;
+}
+
+.user .box a {
+  position: absolute;
+  right: 10px;
+}
+
+.download {
+  padding: 10px;
+}
+
+.download__bttom {
+  display: flex;
+}
+
+.download__bttom__delete {
+  text-align: center;
+  size: 1.5em;
+  display: block;
+  width: 80px;
+  margin: 30px auto;
+  height: 50px;
+  display: grid;
+  place-items: center;
+}
+
+.download__bttom__on {
+  text-align: center;
+  size: 1.5em;
+  display: block;
+  width: 100px;
+  margin: 30px auto;
+  height: 50px;
+  display: grid;
+  place-items: center;
+}
+
+.download h4 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.download__content {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.download__content__name {
+  padding: 20px 0;
+}
+
+.download__content .map_img {
+  padding-bottom: 10px;
+  display: block;
+}
+
+.download__content__ope {
+  height: 120px;
+  border-radius: 15px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 10px;
+  display: flex;
+}
+
+.download__content__ope__img {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
+.download__content__ope__come {
+  padding: 10px;
+}
+
+.download__content__ope__come .ope {
+  display: flex;
+}
+
+.download__content__ope__come .line_color {
+  width: 20px;
+  height: 20px;
+  color: white;
 }
 
