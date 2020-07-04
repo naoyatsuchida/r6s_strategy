@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStrategyOperationTable extends Migration
+class CreateMapPathsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateStrategyOperationTable extends Migration
      */
     public function up()
     {
-        Schema::create('strategy_operation', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('strategy_id');
-            $table->unsignedInteger('operation_id')->nullable(); 
+        Schema::create('map_paths', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('strategy_id');
+            $table->longtext('map_path');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateStrategyOperationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('strategy_operation');
+        Schema::dropIfExists('map_paths');
     }
 }

@@ -13,7 +13,7 @@ class MapTableSeeder extends Seeder
     {
         $maps = [
             [
-              
+                'name' => '銀行',
                 'path' => 'images/maps_top/bank.jpg',
                     'children' => [
                                             
@@ -25,7 +25,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => '国境',
+                'name' => '国境',
                 'path' => 'images/maps_top/border.jpg',
                     'children' => [
                                            
@@ -36,7 +36,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => 'カフェ・ドフトエスキー',
+                'name' => 'カフェ・ドフトエスキー',
                 'path' => 'images/maps_top/cafe.jpg',
                     'children' => [
                                            
@@ -48,7 +48,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => 'クラブハウス',
+                'name' => 'クラブハウス',
                 'path' => 'images/maps_top/club.jpg',
                     'children' => [
                                             
@@ -60,7 +60,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => '海岸線',
+                'name' => '海岸線',
                 'path' => 'images/maps_top/coastline.jpg',
                     'children' => [
                                            
@@ -73,7 +73,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => '領事館',
+                'name' => '領事館',
                 'path' => 'images/maps_top/consulate.jpg',
                     'children' => [
                                             
@@ -86,7 +86,7 @@ class MapTableSeeder extends Seeder
                 ],
             
             [
-                // 'name' => '山荘',
+                'name' => '山荘',
                 'path' => 'images/maps_top/mountain.jpg',
                     'children' => [
                                            
@@ -98,7 +98,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => 'オレゴン',
+                'name' => 'オレゴン',
                 'path' => 'images/maps_top/oregon.jpg',
                     'children' => [
                                             
@@ -111,7 +111,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => 'アウトバック',
+                'name' => 'アウトバック',
                 'path' => 'images/maps_top/outback.jpg',
                     'children' => [
                                             
@@ -123,7 +123,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => 'テーマパーク',
+                'name' => 'テーマパーク',
                 'path' => 'images/maps_top/themapark.jpg',
                     'children' => [
                                            
@@ -134,7 +134,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => '運河',
+                'name' => '運河',
                 'path' => 'images/maps_top/unga.jpg',
                     'children' => [
                                             
@@ -148,7 +148,7 @@ class MapTableSeeder extends Seeder
                     ],
                 ],
             [
-                // 'name' => 'ヴィラ',
+                'name' => 'ヴィラ',
                 'path' => 'images/maps_top/villa.jpg',
                     'children' => [
                                         

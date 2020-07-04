@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMapUrlToStrategiesTable extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddMapUrlToStrategiesTable extends Migration
      */
     public function up()
     {
-        Schema::table('strategies', function (Blueprint $table) {
-            $table->longtext('map_url');
+        Schema::create('comments', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('strategy_id');
+            $table->string('comment')->nullable();
+
+            $table->timestamps();
         });
     }
 
@@ -23,11 +27,8 @@ class AddMapUrlToStrategiesTable extends Migration
      *
      * @return void
      */
-    
     public function down()
     {
-        Schema::table('strategies', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('comments');
     }
 }

@@ -16,6 +16,7 @@ class CreateMapCategoriesTable extends Migration
         Schema::create('map__categories', function (Blueprint $table) {
             $table->id();
             $table->string('path');
+            $table->string('name')->nullable();
             NestedSet::columns($table);
             $table->timestamps();
         });

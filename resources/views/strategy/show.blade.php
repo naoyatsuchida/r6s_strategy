@@ -4,6 +4,8 @@
 @section('content')
 <div class='show'>
   <div class="show__img">
+
+  
     
     @foreach($maps as $map)
     <span class="show__img__no">
@@ -20,9 +22,9 @@
           <input type="hidden" id='count' value="{{$loop->count}}" class="img_pass">
           <input type="hidden" name='map_url' value='[]' id='map_url{{$loop->iteration}}' >
         </form>
-        <canvas id='CanvasMap{{$loop->iteration}}' ></canvas>
-        <canvas id="Image{{$loop->iteration}}" ></canvas>
-        <canvas id="CanvasDraw{{$loop->iteration}}" class="map_date"></canvas>
+        <canvas id='CanvasMap{{$loop->iteration}}' class='canvas_delete'></canvas>
+        <canvas id="Image{{$loop->iteration}}" class="map_date"></canvas>
+        <canvas id="CanvasDraw{{$loop->iteration}}"class='canvas_delete' ></canvas>
         
     </div>
      

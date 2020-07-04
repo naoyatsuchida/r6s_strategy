@@ -50699,6 +50699,10 @@ window.onload = function () {
     } // 複数のcanvasを一つのcanvasに統合する//
 
 
+    function comment() {
+      document.querySelector('.form_box').style.display = 'block';
+    }
+
     function initEventHandler() {
       var clearButton = document.querySelector("#clear-button".concat(step));
       clearButton.addEventListener('click', clear);
@@ -50711,9 +50715,15 @@ window.onload = function () {
       document.querySelectorAll('.box').forEach(function (box) {
         box.addEventListener('click', change_color);
       });
-      document.querySelector("#form").addEventListener("click", function () {
+      document.querySelectorAll(".box").forEach(function (e) {
+        e.addEventListener("click", function () {
+          concatCanvas("Image".concat(step), ["#CanvasMap".concat(step), "#CanvasDraw".concat(step)]);
+        });
+      });
+      document.querySelector('#otamesi').addEventListener("click", function () {
         concatCanvas("Image".concat(step), ["#CanvasMap".concat(step), "#CanvasDraw".concat(step)]);
       });
+      document.querySelector('#otamesi').addEventListener('click', comment);
     }
 
     initEventHandler();
@@ -50809,14 +50819,25 @@ window.onload = function () {
   function map_url() {
     document.querySelectorAll('.map_date').forEach(function (e) {
       var date = [];
-      date.push(e.toDataURL("image/png", 0, 7));
+      date.push(e.toDataURL("image/png"));
       var q = [];
       q = document.createElement('input');
       q.type = 'hidden';
-      q.name = 'map_url[]';
+      q.name = 'map_path[]';
       q.value = date;
       document.querySelector('.map_array').append(q);
     });
+  }
+
+  function click_btn() {
+    document.querySelector('#otamesi').click();
+  }
+
+  function idou() {
+    var point = document.querySelector('#first_form');
+    var rect = point.getBoundingClientRect();
+    var elemtop = rect.top + window.pageYOffset;
+    document.documentElement.scrollTop = elemtop;
   }
 
   var operater_form = document.getElementById('form');
@@ -50828,7 +50849,9 @@ window.onload = function () {
     next3.addEventListener('click', n3);
     next4.addEventListener('click', n4);
     operater_form.addEventListener('click', valid);
-    document.querySelector('#form').addEventListener('click', map_url);
+    document.querySelector('#form').addEventListener('click', click_btn);
+    document.querySelector("#form").addEventListener('click', map_url);
+    document.querySelector('#otamesi').addEventListener('click', idou);
   }
 
   ;

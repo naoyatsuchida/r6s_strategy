@@ -8,6 +8,7 @@ use \App\Models\Map_Category;
 use \App\Models\Operation;
 use Illuminate\Support\Facades\DB;
 use \App\Models\Strategy;
+use \App\User;
 
 class StrategyController extends Controller
 {
@@ -19,7 +20,7 @@ class StrategyController extends Controller
     public function index()
     {
         $maps = Map_Category::get()->toTree();
-
+   
         return view('strategy.index',compact('maps'));
     }
 
@@ -44,23 +45,22 @@ class StrategyController extends Controller
         
         //先にstrategyのインスタンスを作成しないと整合性が取れてないと怒られる。
 
+
         $strategy = Strategy::create(['name' => $request->input('name'),
-                                        'user_id' => Auth::id()]);
-        
-        $strategy->map_url = $request->input('map_url');
-
+                                        'user_id' => Auth::id(),
+                                        'map_id' => $request->input('map_id')]);
+        $a = $strategy->array_collect('map_path',$request->input('map_path'));
+        $b = $strategy->array_collect('comment',$request->input('comments'));
+        $strategy->Map_paths()->createMany($a);
+        $strategy->comments()->createMany($b);
         $strategy->operations()->attach($request->input('operation_id'));
-        $strategy->comment = $request->input('comments');
-        // dd($strategy);
         $strategy->save();
-        
-        
 
+        //マイページに遷移させるために必要なデータ達
+        $strategies = User::find(Auth::id())->strategies()->orderBy('created_at','desc')->get();
+        $user = User::find(Auth::id());
+        return view('user.show',compact('strategies','user'));
 
-        $maps = Map_Category::get()->toTree();
-
-        return view('strategy.index',compact('maps'));
-  
 
     }
 
@@ -72,12 +72,14 @@ class StrategyController extends Controller
      */
     public function show($id)
     {
+        $map_id = $id;
         $maps = Map_Category::descendantsOf($id);
+        
         $OperationAttack = Operation::OperationAttack();
         $OperationDefense = Operation::OperationDefense();
         $attackpath = Operation::where('role','attack')->get();
         $defensepath = Operation::where('role','defense')->get();
-        return view('strategy.show',compact('maps','OperationAttack','OperationDefense','attackpath','defensepath'));
+        return view('strategy.show',compact('maps','OperationAttack','OperationDefense','attackpath','defensepath','map_id'));
     }
 
     /**
@@ -88,7 +90,8 @@ class StrategyController extends Controller
      */
     public function edit($id)
     {
-        
+        $strategy = Strategy::find($id);
+        return view('strategy.edit',compact('strategy'));
     }
 
     /**
