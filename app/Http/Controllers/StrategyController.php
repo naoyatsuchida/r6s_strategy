@@ -126,6 +126,9 @@ class StrategyController extends Controller
     public function destroy($id)
     {
         $strategy = Strategy::find($id);
+        $strategy->comment_delete($id);
+        $strategy->mappath_delete($id);
+        $strategy->operation_delete($id);
         $strategy->delete();
 
         $maps = Map_Category::get()->toTree();

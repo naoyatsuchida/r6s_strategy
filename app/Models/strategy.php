@@ -72,6 +72,26 @@ class Strategy extends Model
         return \App\Models\Map_Category::where('id',$id)->first();
     }
 
-  
+//削除機能
+public function comment_delete($id){
+    $comments = \App\Models\Comment::where('strategy_id',$id)->get();
+    foreach($comments as $c){
+        $c->delete();
+    }
+}
+
+public function mappath_delete($id){
+    $Map = \App\Models\Map_path::where('strategy_id',$id)->get();
+    foreach($Map as $m){
+        $m->delete();
+    }
+}
+
+public function operation_delete($id){
+    $Map = \App\Models\Strategy_Operation::where('strategy_id',$id)->get();
+    foreach($Map as $m){
+        $m->delete();
+    }
+}
 
 }
