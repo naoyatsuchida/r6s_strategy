@@ -3,6 +3,7 @@ window.onload = () =>{
 
   let count = document.getElementById('count').value;
 
+
   for (let step = 1; step <= count; step++) {
  
       const canvas = document.querySelector(`#CanvasMap${step}`);
@@ -315,7 +316,18 @@ function idou(){
     document.querySelector('.show__said__defense').style.display='block';
     document.querySelector('.show__said__defense').style.display='flex';
   }
- 
+
+  function line_color(){
+        console.log('dfaf');
+    // for($i=1;$i<6;$i++){
+    //   $color = document.querySelector(`#operater-line${$i}`).dataset.color;
+    //   console.log($color);
+    //   document.querySelector(`#operater-line${$i}`).style.backgroundColor = $color;
+      
+    // }
+  }
+
+
 
   function eventhundle(){
     role.addEventListener('change',change_role);
@@ -329,15 +341,11 @@ function idou(){
     document.querySelector("#form").addEventListener('click',map_url);
     document.querySelector('#otamesi').addEventListener('click',idou);
 
-    document.querySelector('#attack').addEventListener('click',attackon)
-    document.querySelector('#defense').addEventListener('click',defenseon)
+    document.querySelector('#attack').addEventListener('click',attackon);
+    document.querySelector('#defense').addEventListener('click',defenseon);
+   
 
 };
 eventhundle();
-
-
-
-
-
 
 }

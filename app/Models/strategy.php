@@ -39,8 +39,9 @@ class Strategy extends Model
 
     //オペレーターそれぞれのコメントを連想配列の形に保存
     public function operation_comment($strategy){
+        $come = $strategy->comments;;
         $ope = $strategy->operations;
-        $come = $strategy->comments;
+       
         $array1 = [];
         $array2 = [];
         
@@ -53,7 +54,11 @@ class Strategy extends Model
                 $coment = $come[$i]->comment;
                 array_push($array2,$coment);
         }
-        return array_combine($array1,$array2);
+        if(count($array1)==count($array2)){
+            return array_combine($array1,$array2);
+        }else{
+            return null;
+        }
     }
 
     public function operation_color($name){
@@ -66,5 +71,27 @@ class Strategy extends Model
     public function map_img($id){
         return \App\Models\Map_Category::where('id',$id)->first();
     }
+
+//削除機能
+public function comment_delete($id){
+    $comments = \App\Models\Comment::where('strategy_id',$id)->get();
+    foreach($comments as $c){
+        $c->delete();
+    }
+}
+
+public function mappath_delete($id){
+    $Map = \App\Models\Map_path::where('strategy_id',$id)->get();
+    foreach($Map as $m){
+        $m->delete();
+    }
+}
+
+public function operation_delete($id){
+    $Map = \App\Models\Strategy_Operation::where('strategy_id',$id)->get();
+    foreach($Map as $m){
+        $m->delete();
+    }
+}
 
 }
