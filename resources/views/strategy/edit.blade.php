@@ -13,24 +13,30 @@
           {{$strategy->map_img($strategy->map_id)->name}}
         </h5>
       </div>
+      
+      @if(isset($ope_come))
 
-      @foreach($ope_come as $ope => $come)
+        @foreach($ope_come as $ope => $come)
         <div class="download__content__ope" id="operater{{$loop->iteration}}">
           <img src="{{asset($strategy->operation_color($ope)[0]->path)}}" alt="オペ画像"　class="download__content__ope__img">
           <div class="download__content__ope__come">
             <div class="ope">
               <p>{{$ope}}</p>
-              <div id='operation__line{{$loop->iteration}}' class="line_color"></div>
+<div id='operation__line{{$loop->iteration}}' class="line_color"  data-color="{{$strategy->operation_color($ope)[0]->color}}"></div>
             </div>
-            <span  id="operater_color{{$loop->iteration}}" data-color="{{$strategy->operation_color($ope)[0]->color}}"></span>
             <div class="download__content__ope__come__comment">
+              @if(isset($come))
               <p>{{$come}}</p>
+              @else
+              <p>入力がありません</p>
+              @endif
             </div>
           </div>
-        
+          
         </div>
-      
-      @endforeach
+        
+        @endforeach
+      @endif
 
 
       
@@ -41,6 +47,9 @@
       
 </div class='download__bttom'>
     <a href="#" class="download__bttom__on btn-primary" id="download">ダウンロード</a>
-    <a href="#" class="download__bttom__delete btn-danger">削除</a>
+    <form id='delete_btton' action="{{route('strategy.destroy',['id'=> $strategy->id])}}" method="post">
+      @csrf
+      <button id="del" class="download__bttom__delete btn-danger" data-id="{{$strategy->id}}">削除</button>
+    </form>
 </div>
 @endsection

@@ -12,14 +12,14 @@
         </div>
         <!-- マップurlをhiddenで入力 -->
         {{Form::label('','タイトル：')}}
-        {{Form::text('name', '', ['placeholder' => '作戦名','id' => 'strategy_name', 'size' => 50])}}
+        {{Form::text('name', '', ['placeholder' => '作戦名','id' => 'strategy_name', 'size' => 50 ,'required'=>"required"])}}
         <br>
 
 
         {{Form::select('', [0 => '攻撃',1 =>'防衛'], '', ['placeholder' => '攻撃か防衛か選択してください','id' => 'select_role'])}}
         <span class="select_form" style="display: none;">
-            NO1:{{Form::select('operation_id[]', [$OperationAttack], '', ['placeholder' => '攻撃オペレーター','class' => 'select_attack'])}}
-            {{Form::select('operation_id[]', [$OperationDefense], '', ['placeholder' => '防衛オペレーター','class' => 'select_defense'])}}
+            NO1:{{Form::select('operation_id[]', [$OperationAttack], '', ['class' => 'select_attack'])}}
+            {{Form::select('operation_id[]', [$OperationDefense], '', ['class' => 'select_defense'])}}
         </span>
         <br>
         {{Form::textarea('comments[]', '', ['placeholder' => '選択オペレーターの役割','class' => 'operater_comment'])}}
@@ -30,8 +30,8 @@
     <div class="operater_forms" id="form{{$i}}" style="display: none;">
         
         <span class="select_form" style="display: none;">NO{{$i}}:
-            {{Form::select('operation_id[]', [$OperationAttack], '', ['placeholder' => '攻撃オペレーター','class' => 'select_attack'])}}
-            {{Form::select('operation_id[]', [$OperationDefense], '', ['placeholder' => '防衛オペレーター','class' => 'select_defense'])}}
+            {{Form::select('operation_id[]', [$OperationAttack], '', ['class' => 'select_attack'])}}
+            {{Form::select('operation_id[]', [$OperationDefense], '', ['class' => 'select_defense'])}}
         </span>
         <br>
         {{Form::textarea('comments[]', '', ['placeholder' => '選択オペレーターの役割','class' => 'operater_comment'])}}

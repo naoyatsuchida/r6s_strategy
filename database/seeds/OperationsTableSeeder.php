@@ -13,6 +13,12 @@ class OperationsTableSeeder extends Seeder
     {
         $operations = [
             [
+                'name' => '新兵（フリー）',
+                'path' => 'images/icon/sinpei.jpeg',
+                'color' => 'white',
+                'role' => 'attack',
+            ],
+            [
                 'name' => 'スレッジ',
                 'path' => 'images/icon/attack/sledge.png',
                 'color' => '#916E79',
@@ -91,7 +97,7 @@ class OperationsTableSeeder extends Seeder
                 'role' => 'attack',
             ],
             [
-                'name' => '火花',
+                'name' => 'ヒバナ',
                 'path' => 'images/icon/attack/hibana.jpg',
                 'color' => '#992B41',
                 'role' => 'attack',
@@ -182,6 +188,12 @@ class OperationsTableSeeder extends Seeder
             ],
             
             //防衛
+            [
+                'name' => '新兵（フリー）',
+                'path' => 'images/icon/sinpei.jpeg',
+                'color' => 'white',
+                'role' => 'defense',
+            ],
             [
                 'name' => 'スモーク',
                 'path' => 'images/icon/defense/smoke.png',

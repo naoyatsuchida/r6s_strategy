@@ -50854,6 +50854,14 @@ window.onload = function () {
     document.querySelector('.show__said__defense').style.display = 'flex';
   }
 
+  function line_color() {
+    console.log('dfaf'); // for($i=1;$i<6;$i++){
+    //   $color = document.querySelector(`#operater-line${$i}`).dataset.color;
+    //   console.log($color);
+    //   document.querySelector(`#operater-line${$i}`).style.backgroundColor = $color;
+    // }
+  }
+
   function eventhundle() {
     role.addEventListener('change', change_role);
     next1.addEventListener('click', n1);

@@ -11214,9 +11214,11 @@ a.text-dark:focus {
 }
 
 .download__content__ope__come .line_color {
-  width: 20px;
-  height: 20px;
-  color: white;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 100px;
+  margin-left: 10px;
 }
 
 .download__content__ope__come__comment {

@@ -65,9 +65,11 @@
           }
         }
         .line_color{
-          width: 20px;
-          height: 20px;
-          color: white;
+          width: 18px;
+          height: 18px;
+          background-color: white;
+          border-radius: 100px;
+          margin-left: 10px;
         }
         &__comment{
           font-size: 0.9em;

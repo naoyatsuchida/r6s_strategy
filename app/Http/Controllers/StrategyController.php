@@ -51,7 +51,11 @@ class StrategyController extends Controller
                                         'user_id' => Auth::id(),
                                         'map_id' => $request->input('map_id')]);
         $a = $strategy->array_collect('map_path',$request->input('map_path'));
+
+
         $b = $strategy->array_collect('comment',$request->input('comments'));
+   
+
         $strategy->Map_paths()->createMany($a);
         $strategy->comments()->createMany($b);
         $strategy->operations()->attach($request->input('operation_id'));
@@ -94,7 +98,10 @@ class StrategyController extends Controller
     public function edit($id)
     {
         $strategy = Strategy::find($id);
-        $ope_come = $strategy->operation_comment($strategy);
+        $ope_come = [];
+
+            $ope_come = $strategy->operation_comment($strategy);
+      
         return view('strategy.edit',compact('strategy','ope_come'));
     }
 
@@ -118,6 +125,11 @@ class StrategyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $strategy = Strategy::find($id);
+        $strategy->delete();
+
+        $maps = Map_Category::get()->toTree();
+   
+        return view('strategy.index',compact('maps'));
     }
 }
