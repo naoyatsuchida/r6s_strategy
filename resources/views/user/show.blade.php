@@ -8,7 +8,7 @@
   </div>
 
   <div class="user__contents">
-    
+ @unless($strategies->isEmpty());
     @foreach($strategies as $s)
       <div class="box">
         <img src="{{asset($s->map_img($s->map_id)->path)}}" alt="map_img">
@@ -19,15 +19,13 @@
             
             <span class="box__right__name">作戦名:{{$s->name}}</span>
             <ul>
-              @if(isset($s->operations))
+          
                 @foreach($s->operations as $n)
                 <li>
                   {{$n->name}}
                 </li>
                 @endforeach
-              @else
-              <p>オペレーターは選択されていません</p>
-              @endif
+             
             </ul>
           </div>
           <div class='link'>
@@ -38,7 +36,20 @@
             </p>
           </div>
       </div>
+  
+
     @endforeach
+    @else
+    <div class="box">
+
+      <h3>表示できる作戦がありません</h3>
+    </div>
+    @endunless
+    
+    
+
+ 
+   
   </div>
 
 
