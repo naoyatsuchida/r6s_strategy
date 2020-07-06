@@ -14,7 +14,7 @@
   </div>
 
   <div class="user__contents">
- @unless($strategies->isEmpty());
+ @unless($strategies->isEmpty())
     @foreach($strategies as $s)
       <div class="box">
         <img src="{{asset($s->map_img($s->map_id)->path)}}" alt="map_img">

@@ -94,28 +94,29 @@
 /***/ (function(module, exports) {
 
 window.onload = function () {
+  function line_color() {
+    for ($i = 1; $i < 6; $i++) {
+      $color = document.querySelector("#operation__line".concat($i)).dataset.color;
+      document.querySelector("#operation__line".concat($i)).style.backgroundColor = $color;
+    }
+  }
+
   var strategy_name = document.querySelector('.download__content__name').dataset.name; //canvasを画像化する
-  //   function canvas_download(){
-  // let e = document.body;
-  // let g = document.querySelector('.download');
-  // let c = document.querySelector('.download_content');
-  //   html2canvas(e).then(function(canvas) {
-  //     let dwn_btn = document.createElement('a');
-  //     dwn_btn.href  = canvas.toDataURL('image/jpeg', 0.7);
-  //     dwn_btn.download = 'download.jpg';
-  //     dwn_btn.click();
-  // });
-  // }
+
+  function delete_node() {
+    document.querySelector('.navbar').remove();
+    document.querySelector('.form_down').remove();
+  }
 
   function canvas_download() {
-    var e = document.body;
-    var g = document.querySelector('.download');
-    var c = document.querySelector('.download_content');
-    html2canvas(e).then(function (canvas) {
+    delete_node();
+    var a = document.body;
+    html2canvas(a).then(function (canvas) {
       var dwn_btn = document.createElement('a');
       dwn_btn.href = canvas.toDataURL('image/jpeg', 0.7);
       dwn_btn.download = strategy_name;
       dwn_btn.click();
+      location.reload();
     });
   }
 
@@ -124,6 +125,7 @@ window.onload = function () {
   }
 
   eventhandle();
+  line_color();
 };
 
 /***/ }),

@@ -1165,13 +1165,6 @@ window.onload = function () {
     document.querySelector('#otamesi').click();
   }
 
-  function idou() {
-    var point = document.querySelector('#first_form');
-    var rect = point.getBoundingClientRect();
-    var elemtop = rect.top + window.pageYOffset;
-    document.documentElement.scrollTop = elemtop;
-  }
-
   var operater_form = document.getElementById('form');
 
   function attackon() {
@@ -1186,12 +1179,11 @@ window.onload = function () {
     document.querySelector('.show__said__defense').style.display = 'flex';
   }
 
-  function line_color() {
-    console.log('dfaf'); // for($i=1;$i<6;$i++){
-    //   $color = document.querySelector(`#operater-line${$i}`).dataset.color;
-    //   console.log($color);
-    //   document.querySelector(`#operater-line${$i}`).style.backgroundColor = $color;
-    // }
+  function idou() {
+    var point = document.querySelector('#first_form');
+    var rect = point.getBoundingClientRect();
+    var elemtop = rect.top + window.pageYOffset;
+    document.documentElement.scrollTop = elemtop;
   }
 
   function eventhundle() {
