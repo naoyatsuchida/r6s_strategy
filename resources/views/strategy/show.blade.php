@@ -1,3 +1,8 @@
+
+<head>
+  <script src="{{ mix('js/canvas.js') }}"></script>
+</head>
+
 @extends('layouts.app')
 
 

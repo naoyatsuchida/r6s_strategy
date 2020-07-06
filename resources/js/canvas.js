@@ -294,12 +294,7 @@ function click_btn(){
   document.querySelector('#otamesi').click();
 }
 
-function idou(){
-  let point = document.querySelector('#first_form');
-  let rect = point.getBoundingClientRect();
-  let elemtop = rect.top + window.pageYOffset;
-  document.documentElement.scrollTop = elemtop;
-}
+
 
 
   let operater_form = document.getElementById('form');
@@ -317,17 +312,16 @@ function idou(){
     document.querySelector('.show__said__defense').style.display='flex';
   }
 
-  function line_color(){
-        console.log('dfaf');
-    // for($i=1;$i<6;$i++){
-    //   $color = document.querySelector(`#operater-line${$i}`).dataset.color;
-    //   console.log($color);
-    //   document.querySelector(`#operater-line${$i}`).style.backgroundColor = $color;
-      
-    // }
+
+
+  function idou(){
+    let point = document.querySelector('#first_form');
+    
+    let rect = point.getBoundingClientRect();
+    let elemtop = rect.top + window.pageYOffset;
+
+    document.documentElement.scrollTop = elemtop;
   }
-
-
 
   function eventhundle(){
     role.addEventListener('change',change_role);
