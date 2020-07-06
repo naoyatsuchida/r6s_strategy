@@ -1180,10 +1180,10 @@ window.onload = function () {
   }
 
   function idou() {
-    var point = document.querySelector('#first_form');
+    var point = document.querySelector('#operater_form');
     var rect = point.getBoundingClientRect();
-    var elemtop = rect.top + window.pageYOffset;
-    document.documentElement.scrollTop = elemtop;
+    var position = rect.top;
+    window.scrollBy(0, position);
   }
 
   function eventhundle() {

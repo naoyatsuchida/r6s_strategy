@@ -312,15 +312,16 @@ function click_btn(){
     document.querySelector('.show__said__defense').style.display='flex';
   }
 
+  
+  
+
 
 
   function idou(){
-    let point = document.querySelector('#first_form');
-    
+    let point = document.querySelector('#operater_form');
     let rect = point.getBoundingClientRect();
-    let elemtop = rect.top + window.pageYOffset;
-
-    document.documentElement.scrollTop = elemtop;
+    let position = rect.top;
+    window.scrollBy(0,position);
   }
 
   function eventhundle(){
