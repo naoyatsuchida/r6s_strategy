@@ -1,6 +1,12 @@
+<head>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js">    </script>
+</head>
 @extends('layouts.app')
 
+
 @section('content')
+
+
 <div class="download">
 
  
@@ -51,10 +57,11 @@
               
               
       
-              <div href="#" class="download__bttom__on btn-primary" id="download">ダウンロード</div>
+              <a href="#" class="download__bttom__on btn-primary" id="download_btn" download>ダウンロード</a>
               <form id='delete_btton' action="{{route('strategy.destroy',['id'=> $strategy->id])}}" method="post">
                 @csrf
                 <button id="del" class="download__bttom__delete btn-danger" data-id="{{$strategy->id}}">削除</button>
               </form>
     </div>
 @endsection
+
