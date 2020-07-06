@@ -2,6 +2,12 @@
 @section('content')
 
 
+
+<head>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+</head>
+
+
 <div class="user">
   <div class="user__title">
       <h3>{{$user->name}}の作戦</h3>

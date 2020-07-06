@@ -1,6 +1,6 @@
 window.onload = () =>{
   //canvasタグに画像を表示させ
-
+  console.log('fsdfsd');
   let count = document.getElementById('count').value;
 
 
