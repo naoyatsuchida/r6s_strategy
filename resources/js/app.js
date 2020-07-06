@@ -5,9 +5,9 @@
  */
 
 require('./bootstrap');
-require('./canvas');
 
-require('./html2');
+
+
 
 window.Vue = require('vue');
 
