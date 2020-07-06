@@ -10946,6 +10946,27 @@ a.text-dark:focus {
   width: 33%;
   margin: 20px 0 10px 0;
   height: 50%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.strategy__maps__img:hover {
+  border: 1px solid #36a9e0;
+}
+
+.strategy__maps__img:hover .map_name {
+  transition: all 0.3s ease;
+  font-size: 1.6em;
+}
+
+.strategy__maps__img .map_name {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4em;
+  cursor: pointer;
 }
 
 .strategy__maps__img img {
@@ -10968,15 +10989,10 @@ a.text-dark:focus {
 
 .show__img__clear {
   display: inline-block;
+  padding-left: 100px;
 }
 
 .show__img__clear button {
-  padding: 10px;
-}
-
-.show__img__no {
-  border: 1px solid black;
-  display: inline-block;
   padding: 10px;
 }
 
@@ -10995,20 +11011,28 @@ a.text-dark:focus {
 
 .show__said {
   width: 20%;
-  height: 100%;
+  height: 75%;
   position: absolute;
   position: fixed;
   right: 15px;
+  background-color: #e6e4e4;
+  padding: 10px;
 }
 
-.show__said button {
+.show__said__btn {
+  padding: 0 0 10px 20px;
+}
+
+.show__said__btn button {
   width: 40%;
   height: 50px;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .show__said__attack {
-  display: flex;
   flex-wrap: wrap;
+  display: flex;
 }
 
 .show__said__attack .box {
@@ -11053,7 +11077,9 @@ a.text-dark:focus {
 }
 
 #otamesi {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
+  margin-left: 100px;
+  padding: 10px;
 }
 
 .form_box {
@@ -11092,8 +11118,8 @@ a.text-dark:focus {
 }
 
 .user__title {
-  margin: 0 auto;
-  width: 200px;
+  width: 100%;
+  text-align: center;
 }
 
 .user__contents {
@@ -11149,7 +11175,7 @@ a.text-dark:focus {
   text-align: center;
   size: 1.5em;
   display: block;
-  width: 80px;
+  width: 150px;
   margin: 30px auto;
   height: 50px;
   display: grid;
@@ -11160,7 +11186,7 @@ a.text-dark:focus {
   text-align: center;
   size: 1.5em;
   display: block;
-  width: 100px;
+  width: 150px;
   margin: 30px auto;
   height: 50px;
   display: grid;
