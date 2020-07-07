@@ -55,7 +55,9 @@
     
 
  
-   
+    <div class="d-flex justify-content-center">
+     {{ $strategies->links() }}
+    </div>
   </div>
 
 
