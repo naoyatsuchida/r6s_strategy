@@ -84,6 +84,7 @@ class StrategyController extends Controller
         
         $OperationAttack = Operation::OperationAttack();
         $OperationDefense = Operation::OperationDefense();
+
         $attackpath = Operation::where('role','attack')->get();
         $defensepath = Operation::where('role','defense')->get();
         return view('strategy.show',compact('maps','OperationAttack','OperationDefense','attackpath','defensepath','map_id'));
