@@ -20,7 +20,7 @@ class MapTableSeeder extends Seeder
                             ['path' => 'images/maps/bank/bank_1.jpg'],
                             ['path' => 'images/maps/bank/bank_2.jpg'],
                             ['path' => 'images/maps/bank/bank_3.jpg'],
-                            ['path' => 'images/maps/bank/bank_4.jpg'],            
+                                      
                         
                     ],
                 ],
@@ -64,7 +64,7 @@ class MapTableSeeder extends Seeder
                 'path' => 'images/maps_top/coastline.jpg',
                     'children' => [
                                            
-                            ['path' => 'images/maps/coastline/coastline_1.jpg'],
+                            
                             ['path' => 'images/maps/coastline/coastline_2.jpg'],
                             ['path' => 'images/maps/coastline/coastline_3.jpg'],
                             ['path' => 'images/maps/coastline/coastline_4.jpg'],
@@ -93,7 +93,7 @@ class MapTableSeeder extends Seeder
                             ['path' => 'images/maps/mountain/mountain_1.jpg'],
                             ['path' => 'images/maps/mountain/mountain_2.jpg'],
                             ['path' => 'images/maps/mountain/mountain_3.jpg'],
-                            ['path' => 'images/maps/mountain/mountain_4.jpg'],
+                          
                         
                     ],
                 ],
@@ -105,8 +105,8 @@ class MapTableSeeder extends Seeder
                             ['path' => 'images/maps/oregon/oregon_1.jpg'],
                             ['path' => 'images/maps/oregon/oregon_2.jpg'],
                             ['path' => 'images/maps/oregon/oregon_3.jpg'],
-                            ['path' => 'images/maps/oregon/oregon_4.jpg'],
-                            ['path' => 'images/maps/oregon/oregon_5.jpg'],
+                            
+                            
                         
                     ],
                 ],
@@ -115,10 +115,10 @@ class MapTableSeeder extends Seeder
                 'path' => 'images/maps_top/outback.jpg',
                     'children' => [
                                             
-                            ['path' => 'images/maps/outoback/outback_1.jpg'],
+                           
                             ['path' => 'images/maps/outoback/outback_2.jpg'],
                             ['path' => 'images/maps/outoback/outback_3.jpg'],
-                            ['path' => 'images/maps/outoback/outback_4.jpg'],
+                           
                         
                     ],
                 ],
@@ -142,7 +142,6 @@ class MapTableSeeder extends Seeder
                             ['path' => 'images/maps/unga/unga_2.jpg'],
                             ['path' => 'images/maps/unga/unga_3.jpg'],
                             ['path' => 'images/maps/unga/unga_4.jpg'],
-                            ['path' => 'images/maps/unga/unga_5.jpg'],
                     
                         
                     ],

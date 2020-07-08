@@ -28,9 +28,9 @@ class Operation extends Model
     
     public static function OperationDefense()
     {
-        $defense['name'] = Operation::where('role','defense')->select('name')->get('name');
+        $defense['name'] = Operation::where('role','defense')->select('name')->get();
         $darray = [];
-        $i = 29;
+        $i = 31;
         foreach($defense['name'] as $name){
                 $darray += array($i => $name['name']);
                 $i++;

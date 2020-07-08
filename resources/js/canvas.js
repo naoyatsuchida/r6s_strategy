@@ -321,7 +321,9 @@ function click_btn(){
     let point = document.querySelector('#operater_form');
     let rect = point.getBoundingClientRect();
     let position = rect.top;
+  
     window.scrollBy(0,position);
+
   }
 
   function eventhundle(){

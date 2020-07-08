@@ -13,9 +13,7 @@
   
     
     @foreach($maps as $map)
-    <span class="show__img__no">
-      NO:{{$loop->iteration}}
-    </span>  
+
     <div class='show__img__clear'>
       <button class='btn-primary' id="clear-button{{$loop->iteration}}"><span>NO:{{$loop->iteration}}を削除</span></button>
     </div>
